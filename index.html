@@ -2,25 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Change the browser-tab title here -->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
   <title>Eyleen Min | Portfolio</title>
 
   <style>
+    :root {
+      --pink-light: #ffeaf4;
+      --pink-soft: #f9c9df;
+      --pink-medium: #ee91bb;
+      --pink-dark: #ad4778;
+      --pink-title: #d86a9d;
+      --cream: #fffafc;
+      --brown: #633c50;
+      --shadow: rgba(105, 42, 73, 0.24);
+    }
+
     * {
       box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
     }
 
     body {
       margin: 0;
       overflow: hidden;
+      color: var(--brown);
       font-family: "Courier New", monospace;
-      background: #c7d5ee;
-      color: #111;
+      background: var(--pink-soft);
     }
 
     button {
+      color: inherit;
       font: inherit;
     }
 
@@ -29,31 +50,39 @@
     #loading-screen {
       position: fixed;
       inset: 0;
-      z-index: 9999;
+      z-index: 99999;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #c0c0c0;
+      background:
+        radial-gradient(circle, #fff8fc 1px, transparent 2px) 0 0 / 25px 25px,
+        linear-gradient(135deg, #ffeaf4, #f4b7d3);
+    }
+
+    #loading-screen.hide {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.55s ease;
     }
 
     .loading-window {
-      width: min(430px, 88vw);
-      padding: 4px;
-      background: #c0c0c0;
+      width: min(440px, 88vw);
+      padding: 5px;
+      background: var(--pink-soft);
       border: 3px solid;
-      border-color: #fff #111 #111 #fff;
-      box-shadow: 5px 5px 0 rgb(0 0 0 / 25%);
+      border-color: #fff var(--pink-dark) var(--pink-dark) #fff;
+      box-shadow: 8px 8px 0 var(--shadow);
     }
 
     .title-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 32px;
+      height: 34px;
       padding: 4px 5px 4px 10px;
       color: white;
       font-weight: bold;
-      background: linear-gradient(90deg, #080879, #397bd2);
+      background: linear-gradient(90deg, #ad4778, #ed8fba);
       cursor: move;
       user-select: none;
     }
@@ -64,42 +93,65 @@
     }
 
     .window-button {
-      width: 24px;
-      height: 22px;
+      width: 25px;
+      height: 23px;
       padding: 0;
-      background: #c0c0c0;
+      color: var(--brown);
+      background: var(--pink-light);
       border: 2px solid;
-      border-color: #fff #111 #111 #fff;
+      border-color: #fff var(--pink-dark) var(--pink-dark) #fff;
       cursor: pointer;
     }
 
+    .window-button:active {
+      border-color: var(--pink-dark) #fff #fff var(--pink-dark);
+    }
+
     .loading-content {
-      padding: 28px 20px 20px;
+      padding: 28px 22px 22px;
+      text-align: center;
     }
 
     .loading-content h1 {
-      margin: 0 0 22px;
-      font-size: clamp(25px, 8vw, 42px);
-      letter-spacing: 2px;
+      margin: 0 0 8px;
+      color: var(--pink-dark);
+      font-family: Georgia, serif;
+      font-size: clamp(34px, 9vw, 55px);
+      font-style: italic;
+      font-weight: normal;
+    }
+
+    .loading-heart {
+      margin: 10px 0 20px;
+      font-size: 30px;
+      animation: pulse 1s infinite alternate;
     }
 
     .progress-shell {
       height: 27px;
       padding: 3px;
+      background: #fff5fa;
       border: 2px solid;
-      border-color: #777 #fff #fff #777;
+      border-color: var(--pink-dark) #fff #fff var(--pink-dark);
     }
 
     #progress-bar {
       width: 0%;
       height: 100%;
-      background: #080879;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          var(--pink-dark) 0,
+          var(--pink-dark) 12px,
+          var(--pink-medium) 12px,
+          var(--pink-medium) 16px
+        );
       transition: width 0.15s;
     }
 
     #loading-text {
-      margin-bottom: 0;
-      font-size: 14px;
+      margin: 14px 0 0;
+      font-size: 13px;
     }
 
     /* DESKTOP */
@@ -107,94 +159,385 @@
     #desktop {
       position: relative;
       width: 100vw;
-      height: calc(100vh - 48px);
-      padding: 24px;
+      height: calc(100vh - 49px);
+      min-height: 630px;
       overflow: hidden;
       background:
-        linear-gradient(rgb(20 36 75 / 35%), rgb(20 36 75 / 35%)),
-        radial-gradient(circle at 20% 20%, #d7e7ff, #7694c6 65%, #445a86);
+        radial-gradient(circle, rgb(255 255 255 / 55%) 1px, transparent 2px)
+          0 0 / 28px 28px,
+        linear-gradient(135deg, #ffeaf4, #f4bdd6 55%, #eaa1c4);
     }
 
-    .desktop-heading {
+    .desktop-brand {
       position: absolute;
-      top: 28px;
-      right: 38px;
-      max-width: 600px;
-      text-align: right;
+      top: 20px;
+      left: 28px;
+      z-index: 2;
+    }
+
+    .desktop-brand h1 {
+      margin: 0;
+      color: var(--pink-dark);
+      font-family: Georgia, serif;
+      font-size: clamp(27px, 3vw, 48px);
+      font-style: italic;
+      font-weight: normal;
+      text-shadow: 2px 2px white;
+    }
+
+    .desktop-brand p {
+      margin: 5px 0 0;
+      color: #864664;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* SPARKLES */
+
+    .sparkle {
+      position: absolute;
+      z-index: 4;
       color: white;
-      text-shadow: 3px 3px 0 rgb(0 0 0 / 25%);
+      font-size: 25px;
+      pointer-events: none;
+      text-shadow: 0 0 8px white;
+      animation: twinkle 1.8s infinite alternate ease-in-out;
+    }
+
+    .sparkle.one {
+      top: 12%;
+      left: 22%;
+    }
+
+    .sparkle.two {
+      top: 20%;
+      right: 18%;
+      animation-delay: 0.5s;
+    }
+
+    .sparkle.three {
+      top: 54%;
+      left: 18%;
+      animation-delay: 0.9s;
+    }
+
+    .sparkle.four {
+      top: 58%;
+      right: 19%;
+      animation-delay: 0.3s;
+    }
+
+    .sparkle.five {
+      top: 8%;
+      right: 37%;
+      animation-delay: 1.1s;
+    }
+
+    @keyframes twinkle {
+      from {
+        opacity: 0.3;
+        transform: scale(0.75) rotate(0deg);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1.2) rotate(15deg);
+      }
+    }
+
+    @keyframes pulse {
+      from {
+        transform: scale(0.9);
+      }
+
+      to {
+        transform: scale(1.1);
+      }
+    }
+
+    /* CENTRAL WELCOME WINDOW */
+
+    .welcome-window {
+      position: absolute;
+      z-index: 5;
+      top: 53%;
+      left: 50%;
+      width: min(700px, 65vw);
+      height: 440px;
+      padding: 5px;
+      background: var(--pink-soft);
+      border: 3px solid;
+      border-color: #fff var(--pink-dark) var(--pink-dark) #fff;
+      box-shadow: 12px 12px 0 var(--shadow);
+      transform: translate(-50%, -55%);
+    }
+
+    .welcome-content {
+      position: relative;
+      height: calc(100% - 34px);
+      overflow: hidden;
+      background:
+        linear-gradient(rgb(255 255 255 / 77%), rgb(255 255 255 / 77%)),
+        repeating-linear-gradient(
+          0deg,
+          transparent 0,
+          transparent 24px,
+          #efbdd3 25px
+        );
+      border: 2px solid;
+      border-color: var(--pink-dark) #fff #fff var(--pink-dark);
+    }
+
+    .welcome-copy {
+      position: absolute;
+      z-index: 15;
+      top: 21px;
+      left: 50%;
+      width: 90%;
+      text-align: center;
+      transform: translateX(-50%);
       pointer-events: none;
     }
 
-    .desktop-heading h1 {
-      margin: 0;
-      font-family: Georgia, serif;
-      font-size: clamp(48px, 8vw, 110px);
-      font-style: italic;
-      font-weight: normal;
-      line-height: 0.85;
-    }
-
-    .desktop-heading p {
-      margin: 18px 4px 0;
-      font-size: 14px;
+    .welcome-copy .tiny {
+      margin: 0 0 3px;
+      color: #9d4b70;
+      font-size: 11px;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
 
+    .welcome-copy h2 {
+      margin: 0;
+      color: var(--pink-dark);
+      font-family: Georgia, serif;
+      font-size: clamp(34px, 5vw, 61px);
+      font-style: italic;
+      font-weight: normal;
+      line-height: 1;
+      text-shadow: 2px 2px white;
+    }
+
+    .welcome-copy .role {
+      display: inline-block;
+      margin: 8px 0 0;
+      padding: 5px 10px;
+      color: #79435c;
+      font-size: 11px;
+      letter-spacing: 1px;
+      background: rgb(255 255 255 / 85%);
+      border: 1px dashed var(--pink-title);
+    }
+
+    /* PHOTO COLLAGE */
+
+    .photo {
+      position: absolute;
+      z-index: 7;
+      padding: 7px 7px 25px;
+      background: white;
+      box-shadow: 5px 7px 14px var(--shadow);
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        z-index 0s;
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo:hover {
+      z-index: 30;
+      box-shadow: 10px 15px 30px rgb(95 43 70 / 35%);
+    }
+
+    .photo::after {
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      left: 5px;
+      color: #9c5574;
+      font-size: 9px;
+      text-align: center;
+    }
+
+    .photo-main {
+      bottom: 19px;
+      left: 50%;
+      width: 205px;
+      height: 275px;
+      transform: translateX(-50%) rotate(-1deg);
+    }
+
+    .photo-main:hover {
+      transform: translateX(-50%) rotate(0deg) scale(1.07);
+    }
+
+    .photo-main::after {
+      content: "EYLEEN.JPG ♡";
+    }
+
+    .photo-fashion {
+      bottom: 30px;
+      left: 35px;
+      width: 150px;
+      height: 215px;
+      transform: rotate(-8deg);
+    }
+
+    .photo-fashion:hover {
+      transform: rotate(-2deg) scale(1.08);
+    }
+
+    .photo-fashion::after {
+      content: "FASHION";
+    }
+
+    .photo-childhood {
+      right: 37px;
+      bottom: 35px;
+      width: 145px;
+      height: 195px;
+      transform: rotate(8deg);
+    }
+
+    .photo-childhood:hover {
+      transform: rotate(2deg) scale(1.08);
+    }
+
+    .photo-childhood::after {
+      content: "THROWBACK ♡";
+    }
+
+    .photo-nyc {
+      top: 112px;
+      right: 17px;
+      width: 145px;
+      height: 118px;
+      padding-bottom: 20px;
+      transform: rotate(4deg);
+    }
+
+    .photo-nyc:hover {
+      transform: rotate(0deg) scale(1.08);
+    }
+
+    .photo-nyc::after {
+      content: "NEW YORK";
+    }
+
+    .photo-dog {
+      top: 118px;
+      left: 18px;
+      width: 125px;
+      height: 125px;
+      padding: 6px;
+      border-radius: 50%;
+      transform: rotate(-4deg);
+    }
+
+    .photo-dog img {
+      border-radius: 50%;
+    }
+
+    .photo-dog:hover {
+      transform: rotate(0deg) scale(1.1);
+    }
+
+    .pink-sticker {
+      position: absolute;
+      z-index: 20;
+      right: 183px;
+      bottom: 30px;
+      color: white;
+      font-family: Georgia, serif;
+      font-size: 26px;
+      font-style: italic;
+      text-shadow:
+        2px 2px var(--pink-dark),
+        -1px -1px var(--pink-dark);
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+
+    /* ICON ROW */
+
     .desktop-icons {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: repeat(2, 96px);
-      gap: 22px 10px;
-      width: max-content;
+      position: absolute;
+      right: 18px;
+      bottom: 14px;
+      left: 18px;
+      z-index: 8;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: clamp(10px, 2.6vw, 42px);
     }
 
     .desktop-icon {
-      width: 96px;
+      width: 90px;
       padding: 4px;
-      color: white;
+      color: #733f57;
       text-align: center;
       background: transparent;
       border: 1px solid transparent;
       cursor: pointer;
-      text-shadow: 1px 1px 2px #000;
+      transition: transform 0.2s ease;
     }
 
     .desktop-icon:hover,
     .desktop-icon:focus {
-      background: rgb(0 0 128 / 35%);
-      border: 1px dotted white;
+      background: rgb(255 255 255 / 35%);
+      border: 1px dotted var(--pink-dark);
+      outline: none;
+      transform: translateY(-5px) scale(1.05);
     }
 
     .icon-image {
-      display: block;
-      margin-bottom: 7px;
-      font-size: 39px;
-      filter: drop-shadow(2px 2px 1px rgb(0 0 0 / 30%));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 57px;
+      height: 57px;
+      margin: 0 auto 6px;
+      font-size: 42px;
+      filter: drop-shadow(3px 3px 1px rgb(107 48 78 / 20%));
+    }
+
+    .custom-icon {
+      object-fit: cover;
+      mix-blend-mode: multiply;
     }
 
     .icon-label {
-      font-size: 12px;
+      display: inline-block;
+      padding: 2px 4px;
+      font-size: 11px;
+      font-weight: bold;
       line-height: 1.25;
+      background: rgb(255 255 255 / 58%);
     }
 
-    /* WINDOWS */
+    /* CONTENT WINDOWS */
 
     .portfolio-window {
       position: absolute;
-      z-index: 10;
+      z-index: 50;
       top: 80px;
       left: 25%;
       display: none;
       width: min(650px, 72vw);
       min-height: 330px;
-      padding: 4px;
-      background: #c0c0c0;
+      padding: 5px;
+      background: var(--pink-soft);
       border: 3px solid;
-      border-color: #fff #111 #111 #fff;
-      box-shadow: 8px 8px 0 rgb(0 0 0 / 25%);
+      border-color: #fff var(--pink-dark) var(--pink-dark) #fff;
+      box-shadow: 10px 10px 0 var(--shadow);
     }
 
     .portfolio-window.open {
@@ -202,25 +545,29 @@
     }
 
     .window-content {
-      max-height: 65vh;
-      padding: 24px;
+      max-height: 67vh;
+      padding: 25px;
       overflow-y: auto;
-      background: #f5f5f5;
+      background:
+        linear-gradient(rgb(255 255 255 / 93%), rgb(255 255 255 / 93%)),
+        radial-gradient(circle, var(--pink-medium) 1px, transparent 1px)
+          0 0 / 17px 17px;
       border: 2px solid;
-      border-color: #777 #fff #fff #777;
+      border-color: var(--pink-dark) #fff #fff var(--pink-dark);
     }
 
     .window-content h2 {
-      margin-top: 0;
+      margin: 0 0 15px;
+      color: var(--pink-dark);
       font-family: Georgia, serif;
-      font-size: 34px;
+      font-size: 38px;
       font-style: italic;
       font-weight: normal;
     }
 
     .window-content h3 {
-      margin-bottom: 5px;
-      color: #080879;
+      margin: 0 0 6px;
+      color: #9f426d;
     }
 
     .window-content p,
@@ -231,24 +578,34 @@
     }
 
     .project {
-      margin: 18px 0;
+      margin: 17px 0;
       padding: 16px;
       background: white;
-      border-left: 5px solid #080879;
-      box-shadow: 2px 2px 0 #aaa;
+      border: 2px solid #edb2ce;
+      border-left: 6px solid var(--pink-title);
+      box-shadow: 4px 4px 0 #f1bfd6;
     }
 
     .project p {
       margin-bottom: 0;
     }
 
-    .contact-link {
-      display: block;
-      margin: 10px 0;
-      color: #080879;
+    .link-button {
+      display: inline-block;
+      margin: 7px 5px 7px 0;
+      padding: 9px 13px;
+      color: white;
       font-family: Arial, sans-serif;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bold;
+      text-decoration: none;
+      background: var(--pink-dark);
+      border: 2px solid;
+      border-color: #fbd6e6 #71304f #71304f #fbd6e6;
+    }
+
+    .link-button:hover {
+      background: #c95d8e;
     }
 
     /* TASKBAR */
@@ -258,28 +615,29 @@
       right: 0;
       bottom: 0;
       left: 0;
-      z-index: 5000;
+      z-index: 9000;
       display: flex;
       align-items: center;
-      height: 48px;
+      height: 49px;
       gap: 8px;
       padding: 5px;
-      background: #c0c0c0;
+      background: var(--pink-soft);
       border-top: 3px solid white;
     }
 
     #start-button {
       height: 36px;
       padding: 0 14px;
+      color: #713e56;
       font-weight: bold;
-      background: #c0c0c0;
+      background: var(--pink-light);
       border: 3px solid;
-      border-color: #fff #111 #111 #fff;
+      border-color: #fff var(--pink-dark) var(--pink-dark) #fff;
       cursor: pointer;
     }
 
     #start-button:active {
-      border-color: #111 #fff #fff #111;
+      border-color: var(--pink-dark) #fff #fff var(--pink-dark);
     }
 
     .taskbar-name {
@@ -289,8 +647,9 @@
       overflow: hidden;
       font-size: 13px;
       white-space: nowrap;
+      background: rgb(255 255 255 / 35%);
       border: 2px solid;
-      border-color: #777 #fff #fff #777;
+      border-color: var(--pink-dark) #fff #fff var(--pink-dark);
     }
 
     #clock {
@@ -298,42 +657,86 @@
       height: 35px;
       padding: 8px;
       text-align: center;
+      background: rgb(255 255 255 / 35%);
       border: 2px solid;
-      border-color: #777 #fff #fff #777;
+      border-color: var(--pink-dark) #fff #fff var(--pink-dark);
     }
 
     /* MOBILE */
 
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
+      body {
+        overflow: auto;
+      }
+
       #desktop {
-        padding: 18px 8px;
+        min-height: 850px;
       }
 
-      .desktop-heading {
-        top: 24px;
-        right: 16px;
-        max-width: 58%;
+      .desktop-brand {
+        top: 15px;
+        left: 15px;
       }
 
-      .desktop-heading h1 {
-        font-size: 48px;
+      .welcome-window {
+        top: 315px;
+        width: 94vw;
+        height: 470px;
+        transform: translate(-50%, -50%);
       }
 
-      .desktop-heading p {
-        font-size: 10px;
+      .welcome-copy h2 {
+        font-size: 38px;
+      }
+
+      .photo-main {
+        width: 175px;
+        height: 245px;
+      }
+
+      .photo-fashion {
+        left: 10px;
+        width: 120px;
+        height: 175px;
+      }
+
+      .photo-childhood {
+        right: 10px;
+        width: 115px;
+        height: 165px;
+      }
+
+      .photo-dog {
+        top: 127px;
+        left: 8px;
+        width: 92px;
+        height: 92px;
+      }
+
+      .photo-nyc {
+        top: 125px;
+        right: 8px;
+        width: 110px;
+        height: 92px;
+      }
+
+      .pink-sticker {
+        display: none;
       }
 
       .desktop-icons {
-        grid-template-columns: 88px;
-        gap: 10px;
+        bottom: 14px;
+        display: grid;
+        grid-template-columns: repeat(3, 90px);
+        gap: 12px 25px;
       }
 
       .portfolio-window {
         position: fixed !important;
-        top: 12px !important;
-        right: 8px !important;
-        bottom: 58px !important;
-        left: 8px !important;
+        top: 10px !important;
+        right: 7px !important;
+        bottom: 57px !important;
+        left: 7px !important;
         width: auto;
         min-height: 0;
       }
@@ -361,6 +764,7 @@
     <div class="loading-window">
       <div class="title-bar">
         <span>EYLEEN.EXE</span>
+
         <div class="window-buttons">
           <button class="window-button">_</button>
           <button class="window-button">□</button>
@@ -369,13 +773,15 @@
       </div>
 
       <div class="loading-content">
-        <h1>LOADING...</h1>
+        <h1>Loading...</h1>
+
+        <div class="loading-heart">♡</div>
 
         <div class="progress-shell">
           <div id="progress-bar"></div>
         </div>
 
-        <p id="loading-text">Opening portfolio... 0%</p>
+        <p id="loading-text">Opening Eyleen's portfolio... 0%</p>
       </div>
     </div>
   </div>
@@ -383,311 +789,534 @@
   <!-- DESKTOP -->
 
   <main id="desktop">
-    <div class="desktop-heading">
+
+    <header class="desktop-brand">
       <h1>Eyleen Min</h1>
       <p>Fashion · PR · Brand Marketing</p>
-    </div>
+    </header>
 
-    <div class="desktop-icons">
-      <button class="desktop-icon" onclick="openWindow('about-window')">
-        <span class="icon-image">👤</span>
+    <!-- Decorative sparkles -->
+
+    <span class="sparkle one">✦</span>
+    <span class="sparkle two">✧</span>
+    <span class="sparkle three">✦</span>
+    <span class="sparkle four">✧</span>
+    <span class="sparkle five">✦</span>
+
+    <!-- CENTER WELCOME WINDOW -->
+
+    <section class="welcome-window">
+      <div class="title-bar">
+        <span>WELCOME_TO_MY_WORLD.EXE</span>
+
+        <div class="window-buttons">
+          <button class="window-button">_</button>
+          <button class="window-button">□</button>
+          <button class="window-button">♡</button>
+        </div>
+      </div>
+
+      <div class="welcome-content">
+
+        <div class="welcome-copy">
+          <p class="tiny">Welcome to my portfolio</p>
+          <h2>Eyleen's World</h2>
+
+          <p class="role">
+            FASHION PR · CREATIVE MARKETING · CONTENT
+          </p>
+        </div>
+
+        <!-- Make sure these five images are in your repository -->
+
+        <figure class="photo photo-main">
+          <img src="main.jpg" alt="Eyleen wearing a black outfit">
+        </figure>
+
+        <figure class="photo photo-fashion">
+          <img src="fashion.jpg" alt="Eyleen wearing a brown fashion look">
+        </figure>
+
+        <figure class="photo photo-childhood">
+          <img src="childhood.jpg" alt="Childhood photo of Eyleen">
+        </figure>
+
+        <figure class="photo photo-nyc">
+          <img src="nyc.jpg" alt="Eyleen in New York City">
+        </figure>
+
+        <figure class="photo photo-dog">
+          <img src="dog.jpg" alt="Eyleen's dog wearing pink">
+        </figure>
+
+        <div class="pink-sticker">dream big ♡</div>
+      </div>
+    </section>
+
+    <!-- ICONS -->
+
+    <nav class="desktop-icons">
+
+      <button
+        class="desktop-icon"
+        onclick="openWindow('about-window')"
+      >
+        <img
+          class="icon-image custom-icon"
+          src="icon.jpg"
+          alt=""
+        >
         <span class="icon-label">ABOUT ME</span>
       </button>
 
-      <button class="desktop-icon" onclick="openWindow('pr-window')">
-        <span class="icon-image">📰</span>
-        <span class="icon-label">PR WORK</span>
+      <button
+        class="desktop-icon"
+        onclick="openWindow('content-window')"
+      >
+        <span class="icon-image">📷</span>
+        <span class="icon-label">CONTENT</span>
       </button>
 
-      <button class="desktop-icon" onclick="openWindow('campaign-window')">
+      <button
+        class="desktop-icon"
+        onclick="openWindow('projects-window')"
+      >
         <span class="icon-image">📁</span>
-        <span class="icon-label">CAMPAIGNS</span>
+        <span class="icon-label">PROJECTS</span>
       </button>
 
-      <button class="desktop-icon" onclick="openWindow('ecommerce-window')">
-        <span class="icon-image">🛍️</span>
-        <span class="icon-label">E-COMMERCE</span>
+      <button
+        class="desktop-icon"
+        onclick="openWindow('resume-window')"
+      >
+        <span class="icon-image">📄</span>
+        <span class="icon-label">RESUME</span>
       </button>
 
-      <button class="desktop-icon" onclick="openWindow('social-window')">
-        <span class="icon-image">📹</span>
-        <span class="icon-label">SOCIAL MEDIA</span>
+      <button
+        class="desktop-icon"
+        onclick="openWindow('capstone-window')"
+      >
+        <span class="icon-image">📖</span>
+        <span class="icon-label">CAPSTONE</span>
       </button>
 
-      <button class="desktop-icon" onclick="openWindow('contact-window')">
-        <span class="icon-image">✉️</span>
+      <button
+        class="desktop-icon"
+        onclick="openWindow('contact-window')"
+      >
+        <span class="icon-image">💌</span>
         <span class="icon-label">CONTACT</span>
       </button>
-    </div>
 
-    <!-- ABOUT WINDOW -->
+    </nav>
+
+    <!-- ABOUT ME -->
 
     <section class="portfolio-window" id="about-window">
       <div class="title-bar">
         <span>ABOUT_ME.EXE</span>
+
         <div class="window-buttons">
-          <button class="window-button" onclick="closeWindow('about-window')">×</button>
+          <button
+            class="window-button"
+            onclick="closeWindow('about-window')"
+          >
+            ×
+          </button>
         </div>
       </div>
 
       <div class="window-content">
-        <h2>About Eyleen</h2>
+        <h2>About Eyleen ♡</h2>
 
-        <!-- Edit your introduction here -->
         <p>
           I am a fashion marketing professional with experience across public
-          relations, influencer marketing, merchandising, e-commerce, and social
-          media. I earned my MPS in Fashion Management from Parsons School of
-          Design and my BA in Sociology from the University of Southern California.
+          relations, influencer marketing, merchandising, e-commerce, and
+          social media.
         </p>
 
         <p>
-          I am especially passionate about creating meaningful connections
-          between fashion and beauty brands, media, creators, and consumers.
+          I earned my MPS in Fashion Management from Parsons School of Design
+          and my BA in Sociology from the University of Southern California.
+          I am especially passionate about connecting fashion and beauty
+          brands with media, creators, and consumers.
         </p>
 
-        <h3>Core Skills</h3>
-        <p>
-          Media relations · Influencer gifting · Brand communications ·
-          E-commerce · Campaign research · Content creation · Event support
-        </p>
-      </div>
-    </section>
-
-    <!-- PR WINDOW -->
-
-    <section class="portfolio-window" id="pr-window">
-      <div class="title-bar">
-        <span>PR_WORK.EXE</span>
-        <div class="window-buttons">
-          <button class="window-button" onclick="closeWindow('pr-window')">×</button>
-        </div>
-      </div>
-
-      <div class="window-content">
-        <h2>Public Relations</h2>
-
         <div class="project">
-          <h3>AZIONE PR</h3>
+          <h3>Skills</h3>
+
           <p>
-            Supported media relations and influencer initiatives for fashion,
-            beauty, wellness, and lifestyle clients. Created targeted media and
-            creator lists, conducted competitive research, monitored coverage,
-            assisted with gifting, and contributed to campaign pitches.
+            Media relations · Influencer gifting · Brand communications ·
+            Campaign research · E-commerce · Content creation · Event support
           </p>
         </div>
 
         <div class="project">
-          <h3>Brand Experience</h3>
+          <h3>Tools</h3>
+
           <p>
-            Worked across brands including CALPAK, Simplehuman, Kosas, Caraway,
-            Cotopaxi, Teva, REI, Kizik, Lela Rose, and Fair Harbor.
+            Muck Rack · CoverageBook · Shopify · Canva · CapCut · Notion ·
+            Google Workspace · Microsoft Office
           </p>
         </div>
       </div>
     </section>
 
-    <!-- CAMPAIGNS WINDOW -->
+    <!-- CONTENT -->
 
-    <section class="portfolio-window" id="campaign-window">
+    <section class="portfolio-window" id="content-window">
       <div class="title-bar">
-        <span>CAMPAIGNS_FOLDER</span>
+        <span>CONTENT.EXE</span>
+
         <div class="window-buttons">
-          <button class="window-button" onclick="closeWindow('campaign-window')">×</button>
+          <button
+            class="window-button"
+            onclick="closeWindow('content-window')"
+          >
+            ×
+          </button>
         </div>
       </div>
 
       <div class="window-content">
-        <h2>Campaigns</h2>
-
-        <div class="project">
-          <h3>Pop-Up Activation Concepts</h3>
-          <p>
-            Developed visual decks and experiential concepts for brand activations,
-            combining consumer insights, visual storytelling, location strategy,
-            partnerships, and social-media opportunities.
-          </p>
-        </div>
-
-        <div class="project">
-          <h3>Moodboards and Pitch Development</h3>
-          <p>
-            Contributed written pitches and creative moodboards for brands such as
-            CALPAK, Simplehuman, Piccalio, and Cotopaxi.
-          </p>
-        </div>
-
-        <!-- Later, we can add links and images of your decks here -->
-      </div>
-    </section>
-
-    <!-- E-COMMERCE WINDOW -->
-
-    <section class="portfolio-window" id="ecommerce-window">
-      <div class="title-bar">
-        <span>E_COMMERCE.EXE</span>
-        <div class="window-buttons">
-          <button class="window-button" onclick="closeWindow('ecommerce-window')">×</button>
-        </div>
-      </div>
-
-      <div class="window-content">
-        <h2>E-Commerce</h2>
-
-        <div class="project">
-          <h3>Fashion E-Commerce Business</h3>
-          <p>
-            Founded and operated an independent online fashion business using
-            Shopify. Managed product selection, merchandising, customer service,
-            order fulfillment, social content, and day-to-day operations.
-          </p>
-        </div>
-
-        <div class="project">
-          <h3>MONSE</h3>
-          <p>
-            Supported merchandising and e-commerce responsibilities within a
-            luxury fashion environment.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOCIAL WINDOW -->
-
-    <section class="portfolio-window" id="social-window">
-      <div class="title-bar">
-        <span>SOCIAL_MEDIA.EXE</span>
-        <div class="window-buttons">
-          <button class="window-button" onclick="closeWindow('social-window')">×</button>
-        </div>
-      </div>
-
-      <div class="window-content">
-        <h2>Social Media</h2>
+        <h2>Content Creation</h2>
 
         <div class="project">
           <h3>TikTok Creator</h3>
+
           <p>
-            Create fashion, beauty, lifestyle, shopping, and humor-led content.
-            Produced a viral TikTok that received more than 10 million views,
-            demonstrating an understanding of platform-native storytelling,
+            I create fashion, beauty, lifestyle, shopping, and humor-led
+            content. One of my videos received more than 10 million views,
+            demonstrating my understanding of platform-native storytelling,
             audience behavior, and cultural trends.
           </p>
         </div>
 
-        <!-- Replace the # with your TikTok link -->
-        <a class="contact-link" href="#" target="_blank">
-          View TikTok →
+        <div class="project">
+          <h3>Creative Strengths</h3>
+
+          <p>
+            Short-form video · Trend research · Concept development ·
+            On-camera content · CapCut editing · Community engagement
+          </p>
+        </div>
+
+        <!-- Replace # with your TikTok link -->
+
+        <a class="link-button" href="#" target="_blank">
+          View TikTok
         </a>
       </div>
     </section>
 
-    <!-- CONTACT WINDOW -->
+    <!-- PROJECTS -->
 
-    <section class="portfolio-window" id="contact-window">
+    <section class="portfolio-window" id="projects-window">
       <div class="title-bar">
-        <span>CONTACT.EXE</span>
+        <span>PROJECTS_FOLDER</span>
+
         <div class="window-buttons">
-          <button class="window-button" onclick="closeWindow('contact-window')">×</button>
+          <button
+            class="window-button"
+            onclick="closeWindow('projects-window')"
+          >
+            ×
+          </button>
         </div>
       </div>
 
       <div class="window-content">
-        <h2>Let's Connect</h2>
+        <h2>Selected Projects</h2>
+
+        <div class="project">
+          <h3>PR and Influencer Marketing</h3>
+
+          <p>
+            At AZIONE PR, I supported media relations and influencer
+            initiatives for fashion, beauty, wellness, and lifestyle clients.
+            I created targeted media and creator lists, monitored coverage,
+            supported gifting, researched competitors, and contributed to
+            campaign pitches.
+          </p>
+        </div>
+
+        <div class="project">
+          <h3>Pop-Up Activation Concepts</h3>
+
+          <p>
+            Developed visual decks and experiential concepts incorporating
+            consumer insights, location strategy, partnerships, visual
+            storytelling, and social-media opportunities.
+          </p>
+        </div>
+
+        <div class="project">
+          <h3>E-Commerce and Merchandising</h3>
+
+          <p>
+            Founded and operated an independent Shopify fashion business and
+            developed additional merchandising and e-commerce experience
+            within luxury fashion.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME -->
+
+    <section class="portfolio-window" id="resume-window">
+      <div class="title-bar">
+        <span>RESUME.PDF</span>
+
+        <div class="window-buttons">
+          <button
+            class="window-button"
+            onclick="closeWindow('resume-window')"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+
+      <div class="window-content">
+        <h2>Résumé</h2>
 
         <p>
-          I am interested in opportunities across fashion, beauty, public
-          relations, influencer marketing, brand communications, and e-commerce.
+          My experience spans fashion public relations, influencer marketing,
+          e-commerce, merchandising, operations, and content creation.
         </p>
 
-        <!-- Replace these sample links with your information -->
-        <a class="contact-link" href="mailto:youremail@example.com">
-          Email Me
-        </a>
+        <div class="project">
+          <h3>Education</h3>
 
-        <a class="contact-link" href="#" target="_blank">
-          LinkedIn
-        </a>
+          <p>
+            Parsons School of Design — MPS Fashion Management<br>
+            University of Southern California — BA Sociology
+          </p>
+        </div>
 
-        <a class="contact-link" href="#" target="_blank">
+        <div class="project">
+          <h3>Selected Experience</h3>
+
+          <p>
+            AZIONE PR · MONSE · Independent E-Commerce Business ·
+            One Design Lab · Peak Café
+          </p>
+        </div>
+
+        <!-- Later upload your resume as resume.pdf -->
+
+        <a class="link-button" href="resume.pdf" target="_blank">
           Download Résumé
         </a>
       </div>
     </section>
+
+    <!-- CAPSTONE -->
+
+    <section class="portfolio-window" id="capstone-window">
+      <div class="title-bar">
+        <span>CAPSTONE.PDF</span>
+
+        <div class="window-buttons">
+          <button
+            class="window-button"
+            onclick="closeWindow('capstone-window')"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+
+      <div class="window-content">
+        <h2>Graduate Capstone</h2>
+
+        <div class="project">
+          <h3>
+            Gen Z, Counterfeits, and the Price of Luxury
+          </h3>
+
+          <p>
+            A cross-cultural study examining the motivations behind Gen Z
+            counterfeit and dupe consumption in the United States and South
+            Korea.
+          </p>
+        </div>
+
+        <p>
+          The study combined a survey of 70 consumers ages 18–27 with digital
+          content analysis across TikTok and Reddit. Findings revealed that
+          price was the leading purchase driver, while cultural differences
+          shaped how counterfeit consumption was discussed and managed.
+        </p>
+
+        <!-- Later upload your capstone as capstone.pdf -->
+
+        <a class="link-button" href="capstone.pdf" target="_blank">
+          Read Capstone
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="portfolio-window" id="contact-window">
+      <div class="title-bar">
+        <span>CONTACT.EXE</span>
+
+        <div class="window-buttons">
+          <button
+            class="window-button"
+            onclick="closeWindow('contact-window')"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+
+      <div class="window-content">
+        <h2>Let's Connect ♡</h2>
+
+        <p>
+          I am interested in opportunities across fashion, beauty, public
+          relations, influencer marketing, brand communications, and
+          e-commerce.
+        </p>
+
+        <!-- Replace the sample information below -->
+
+        <a
+          class="link-button"
+          href="mailto:youremail@example.com"
+        >
+          Email Me
+        </a>
+
+        <a
+          class="link-button"
+          href="#"
+          target="_blank"
+        >
+          LinkedIn
+        </a>
+
+        <a
+          class="link-button"
+          href="#"
+          target="_blank"
+        >
+          TikTok
+        </a>
+      </div>
+    </section>
+
   </main>
 
   <!-- TASKBAR -->
 
   <footer id="taskbar">
-    <button id="start-button" onclick="openWindow('about-window')">
-      💻 START
+
+    <button
+      id="start-button"
+      onclick="openWindow('about-window')"
+    >
+      🎀 START
     </button>
 
     <div class="taskbar-name">
-      Eyleen Min — Fashion Marketing Portfolio
+      Eyleen Min — Fashion Marketing Portfolio ♡
     </div>
 
     <div id="clock">12:00 PM</div>
+
   </footer>
 
   <script>
-    let topWindow = 20;
+    let topWindow = 100;
 
     function openWindow(id) {
-      const windowElement = document.getElementById(id);
-      windowElement.classList.add("open");
-      topWindow++;
-      windowElement.style.zIndex = topWindow;
+      const selectedWindow = document.getElementById(id);
+
+      selectedWindow.classList.add("open");
+
+      topWindow += 1;
+      selectedWindow.style.zIndex = topWindow;
     }
 
     function closeWindow(id) {
       document.getElementById(id).classList.remove("open");
     }
 
-    // Bring the selected window to the front
-    document.querySelectorAll(".portfolio-window").forEach((windowElement) => {
-      windowElement.addEventListener("mousedown", () => {
-        topWindow++;
-        windowElement.style.zIndex = topWindow;
-      });
-    });
+    // Bring a clicked window to the front.
 
-    // Make windows draggable on desktop
-    document.querySelectorAll(".portfolio-window").forEach((windowElement) => {
-      const handle = windowElement.querySelector(".title-bar");
-      let dragging = false;
-      let offsetX = 0;
-      let offsetY = 0;
-
-      handle.addEventListener("mousedown", (event) => {
-        if (window.innerWidth <= 700) return;
-        if (event.target.closest("button")) return;
-
-        dragging = true;
-        offsetX = event.clientX - windowElement.offsetLeft;
-        offsetY = event.clientY - windowElement.offsetTop;
+    document
+      .querySelectorAll(".portfolio-window")
+      .forEach((selectedWindow) => {
+        selectedWindow.addEventListener("mousedown", () => {
+          topWindow += 1;
+          selectedWindow.style.zIndex = topWindow;
+        });
       });
 
-      document.addEventListener("mousemove", (event) => {
-        if (!dragging) return;
+    // Make content windows draggable on desktop.
 
-        const maxX = window.innerWidth - windowElement.offsetWidth;
-        const maxY = window.innerHeight - 60;
+    document
+      .querySelectorAll(".portfolio-window")
+      .forEach((selectedWindow) => {
+        const handle = selectedWindow.querySelector(".title-bar");
 
-        const newX = Math.max(0, Math.min(event.clientX - offsetX, maxX));
-        const newY = Math.max(0, Math.min(event.clientY - offsetY, maxY));
+        let dragging = false;
+        let offsetX = 0;
+        let offsetY = 0;
 
-        windowElement.style.left = newX + "px";
-        windowElement.style.top = newY + "px";
+        handle.addEventListener("mousedown", (event) => {
+          if (window.innerWidth <= 800) {
+            return;
+          }
+
+          if (event.target.closest("button")) {
+            return;
+          }
+
+          dragging = true;
+
+          offsetX = event.clientX - selectedWindow.offsetLeft;
+          offsetY = event.clientY - selectedWindow.offsetTop;
+        });
+
+        document.addEventListener("mousemove", (event) => {
+          if (!dragging) {
+            return;
+          }
+
+          const maxX =
+            window.innerWidth - selectedWindow.offsetWidth;
+
+          const maxY =
+            window.innerHeight - selectedWindow.offsetHeight - 49;
+
+          const newX = Math.max(
+            0,
+            Math.min(event.clientX - offsetX, maxX)
+          );
+
+          const newY = Math.max(
+            0,
+            Math.min(event.clientY - offsetY, maxY)
+          );
+
+          selectedWindow.style.left = newX + "px";
+          selectedWindow.style.top = newY + "px";
+        });
+
+        document.addEventListener("mouseup", () => {
+          dragging = false;
+        });
       });
 
-      document.addEventListener("mouseup", () => {
-        dragging = false;
-      });
-    });
+    // Live clock.
 
-    // Live taskbar clock
     function updateClock() {
       const now = new Date();
 
@@ -701,33 +1330,42 @@
     updateClock();
     setInterval(updateClock, 1000);
 
-    // Loading animation
+    // Loading animation.
+
     let progress = 0;
-    const bar = document.getElementById("progress-bar");
-    const text = document.getElementById("loading-text");
-    const loadingScreen = document.getElementById("loading-screen");
+
+    const progressBar =
+      document.getElementById("progress-bar");
+
+    const loadingText =
+      document.getElementById("loading-text");
+
+    const loadingScreen =
+      document.getElementById("loading-screen");
 
     const loadingTimer = setInterval(() => {
-      progress += Math.floor(Math.random() * 12) + 4;
+      progress += Math.floor(Math.random() * 10) + 5;
 
       if (progress >= 100) {
         progress = 100;
+
         clearInterval(loadingTimer);
 
         setTimeout(() => {
-          loadingScreen.style.opacity = "0";
-          loadingScreen.style.transition = "opacity 0.4s";
+          loadingScreen.classList.add("hide");
 
           setTimeout(() => {
             loadingScreen.style.display = "none";
-            openWindow("about-window");
-          }, 400);
-        }, 400);
+          }, 600);
+        }, 450);
       }
 
-      bar.style.width = progress + "%";
-      text.textContent = "Opening portfolio... " + progress + "%";
+      progressBar.style.width = progress + "%";
+
+      loadingText.textContent =
+        "Opening Eyleen's portfolio... " + progress + "%";
     }, 120);
   </script>
+
 </body>
 </html>

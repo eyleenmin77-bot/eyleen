@@ -2,18 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Eyleen Min | Portfolio</title>
 
   <style>
     :root {
-      --light-pink: #fff0f7;
-      --baby-pink: #f8c9df;
-      --medium-pink: #ed91ba;
+      --light-pink: #fff2f8;
+      --baby-pink: #f8cade;
+      --medium-pink: #ec91b8;
       --dark-pink: #aa4775;
-      --brown: #683d52;
-      --shadow: rgba(96, 40, 68, 0.25);
+      --brown: #673c52;
+      --shadow: rgba(104, 46, 75, 0.26);
     }
 
     * {
@@ -50,18 +54,16 @@
       justify-content: center;
       background:
         radial-gradient(circle, white 1px, transparent 2px) 0 0 / 25px 25px,
-        linear-gradient(135deg, #fff0f7, #efafd0);
+        linear-gradient(135deg, #fff1f8, #edafd0);
     }
 
     #loading-screen.hide {
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.55s ease;
     }
 
-    .loading-window,
-    .welcome-window,
-    .portfolio-window {
+    .retro-box {
       padding: 5px;
       background: var(--baby-pink);
       border: 3px solid;
@@ -70,7 +72,7 @@
     }
 
     .loading-window {
-      width: min(440px, 88vw);
+      width: min(430px, 88vw);
     }
 
     .title-bar {
@@ -81,7 +83,7 @@
       padding: 4px 5px 4px 10px;
       color: white;
       font-weight: bold;
-      background: linear-gradient(90deg, #a83d70, #ea86b5);
+      background: linear-gradient(90deg, #a63f70, #eb8ab7);
       cursor: move;
       user-select: none;
     }
@@ -107,7 +109,7 @@
     }
 
     .loading-content {
-      padding: 27px 22px 22px;
+      padding: 28px 22px 22px;
       text-align: center;
     }
 
@@ -168,43 +170,283 @@
       position: relative;
       width: 100vw;
       height: calc(100vh - 49px);
-      min-height: 630px;
+      min-height: 680px;
       overflow: hidden;
       background:
-        radial-gradient(circle, rgb(255 255 255 / 60%) 1px, transparent 2px)
+        radial-gradient(circle, rgb(255 255 255 / 65%) 1px, transparent 2px)
           0 0 / 28px 28px,
-        linear-gradient(135deg, #fff0f7, #f6c4dc 55%, #e99ac0);
+        linear-gradient(135deg, #fff0f7, #f5c3db 55%, #e99ac0);
     }
 
     .desktop-brand {
       position: absolute;
-      top: 20px;
-      left: 28px;
-      z-index: 2;
+      top: 18px;
+      left: 25px;
+      z-index: 15;
     }
 
     .desktop-brand h1 {
       margin: 0;
       color: var(--dark-pink);
       font-family: Georgia, serif;
-      font-size: clamp(29px, 3.5vw, 48px);
+      font-size: clamp(31px, 3.5vw, 50px);
       font-style: italic;
       font-weight: normal;
       text-shadow: 2px 2px white;
     }
 
     .desktop-brand p {
-      margin: 5px 0 0;
+      margin: 4px 0 0;
       font-size: 12px;
       letter-spacing: 1.5px;
       text-transform: uppercase;
+    }
+
+    /* CENTER WELCOME WINDOW */
+
+    .welcome-window {
+      position: absolute;
+      z-index: 5;
+      top: 47%;
+      left: 50%;
+      width: min(530px, 42vw);
+      height: 365px;
+      transform: translate(-50%, -52%);
+    }
+
+    .welcome-content {
+      position: relative;
+      display: grid;
+      grid-template-columns: 47% 53%;
+      height: calc(100% - 34px);
+      overflow: hidden;
+      background:
+        linear-gradient(rgb(255 255 255 / 88%), rgb(255 255 255 / 88%)),
+        repeating-linear-gradient(
+          0deg,
+          transparent 0,
+          transparent 24px,
+          #efbed4 25px
+        );
+      border: 2px solid;
+      border-color: var(--dark-pink) white white var(--dark-pink);
+    }
+
+    .center-photo {
+      position: relative;
+      height: 100%;
+      padding: 14px;
+    }
+
+    .center-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border: 6px solid white;
+      box-shadow: 5px 5px 0 #e8acc8;
+      transition: transform 0.25s ease;
+    }
+
+    .center-photo img:hover {
+      transform: scale(1.05);
+    }
+
+    .welcome-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .welcome-copy .small-heading {
+      margin: 0 0 7px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .welcome-copy h2 {
+      margin: 0;
+      color: var(--dark-pink);
+      font-family: Georgia, serif;
+      font-size: clamp(38px, 4vw, 58px);
+      font-style: italic;
+      font-weight: normal;
+      line-height: 0.95;
+      text-shadow: 2px 2px white;
+    }
+
+    .welcome-copy .role {
+      margin: 17px 0 0;
+      padding: 7px 9px;
+      font-size: 10px;
+      line-height: 1.5;
+      background: white;
+      border: 1px dashed var(--dark-pink);
+    }
+
+    .welcome-copy .welcome-message {
+      margin: 18px 0 0;
+      font-family: Georgia, serif;
+      font-size: 17px;
+      font-style: italic;
+    }
+
+    /* SCATTERED PHOTOS */
+
+    .photo-card {
+      position: absolute;
+      z-index: 7;
+      margin: 0;
+      padding: 7px 7px 25px;
+      background: white;
+      box-shadow: 6px 8px 16px var(--shadow);
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-card:hover {
+      z-index: 40;
+      box-shadow: 13px 18px 35px rgb(95 43 70 / 38%);
+    }
+
+    .photo-card::after {
+      position: absolute;
+      right: 4px;
+      bottom: 6px;
+      left: 4px;
+      color: #98506f;
+      font-size: 9px;
+      text-align: center;
+    }
+
+    .fashion-photo {
+      top: 18%;
+      left: 4%;
+      width: 155px;
+      height: 225px;
+      transform: rotate(-7deg);
+    }
+
+    .fashion-photo:hover {
+      transform: rotate(-1deg) scale(1.1);
+    }
+
+    .fashion-photo::after {
+      content: "FASHION.JPG";
+    }
+
+    .childhood-photo {
+      top: 48%;
+      left: 14%;
+      width: 130px;
+      height: 175px;
+      transform: rotate(6deg);
+    }
+
+    .childhood-photo:hover {
+      transform: rotate(1deg) scale(1.12);
+    }
+
+    .childhood-photo::after {
+      content: "LITTLE ME ♡";
+    }
+
+    .baby-photo {
+      top: 13%;
+      left: 18%;
+      width: 105px;
+      height: 105px;
+      padding: 6px;
+      border-radius: 50%;
+      transform: rotate(5deg);
+    }
+
+    .baby-photo img {
+      border-radius: 50%;
+    }
+
+    .baby-photo:hover {
+      transform: rotate(0deg) scale(1.15);
+    }
+
+    .nyc-photo {
+      top: 14%;
+      right: 6%;
+      width: 170px;
+      height: 150px;
+      transform: rotate(6deg);
+    }
+
+    .nyc-photo:hover {
+      transform: rotate(1deg) scale(1.1);
+    }
+
+    .nyc-photo::after {
+      content: "NEW YORK";
+    }
+
+    /* RESUME PREVIEW */
+
+    .resume-preview {
+      position: absolute;
+      right: 10%;
+      bottom: 16%;
+      z-index: 8;
+      width: 170px;
+      height: 215px;
+      padding: 7px 7px 27px;
+      overflow: visible;
+      background: white;
+      box-shadow: 7px 9px 18px var(--shadow);
+      transform: rotate(-5deg);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .resume-preview iframe {
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: white;
+      border: 1px solid #e5b1ca;
+    }
+
+    .resume-preview::after {
+      position: absolute;
+      right: 4px;
+      bottom: 6px;
+      left: 4px;
+      content: "RESUME.PDF — CLICK TO OPEN";
+      color: #98506f;
+      font-size: 8px;
+      text-align: center;
+    }
+
+    .resume-preview:hover {
+      z-index: 100;
+      box-shadow: 15px 20px 40px rgb(95 43 70 / 45%);
+      transform: rotate(0deg) scale(2);
     }
 
     /* SPARKLES */
 
     .sparkle {
       position: absolute;
-      z-index: 7;
+      z-index: 10;
       color: white;
       font-size: 27px;
       pointer-events: none;
@@ -213,31 +455,31 @@
     }
 
     .sparkle-one {
-      top: 13%;
-      left: 20%;
+      top: 12%;
+      left: 31%;
     }
 
     .sparkle-two {
-      top: 18%;
-      right: 18%;
+      top: 15%;
+      right: 28%;
       animation-delay: 0.4s;
     }
 
     .sparkle-three {
-      top: 50%;
-      left: 16%;
+      top: 57%;
+      left: 27%;
       animation-delay: 0.8s;
     }
 
     .sparkle-four {
-      top: 55%;
-      right: 17%;
+      top: 56%;
+      right: 26%;
       animation-delay: 0.2s;
     }
 
     .sparkle-five {
-      top: 7%;
-      right: 37%;
+      top: 6%;
+      left: 55%;
       animation-delay: 1s;
     }
 
@@ -253,223 +495,22 @@
       }
     }
 
-    /* WELCOME WINDOW */
-
-    .welcome-window {
-      position: absolute;
-      z-index: 5;
-      top: 51%;
-      left: 50%;
-      width: min(720px, 68vw);
-      height: 445px;
-      transform: translate(-50%, -55%);
-    }
-
-    .welcome-content {
-      position: relative;
-      height: calc(100% - 34px);
-      overflow: hidden;
-      background:
-        linear-gradient(rgb(255 255 255 / 78%), rgb(255 255 255 / 78%)),
-        repeating-linear-gradient(
-          0deg,
-          transparent 0,
-          transparent 24px,
-          #edbad2 25px
-        );
-      border: 2px solid;
-      border-color: var(--dark-pink) white white var(--dark-pink);
-    }
-
-    .welcome-copy {
-      position: absolute;
-      z-index: 20;
-      top: 18px;
-      left: 50%;
-      width: 95%;
-      text-align: center;
-      transform: translateX(-50%);
-      pointer-events: none;
-    }
-
-    .welcome-copy .small-heading {
-      margin: 0 0 3px;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .welcome-copy h2 {
-      margin: 0;
-      color: var(--dark-pink);
-      font-family: Georgia, serif;
-      font-size: clamp(36px, 5vw, 62px);
-      font-style: italic;
-      font-weight: normal;
-      line-height: 1;
-      text-shadow: 2px 2px white;
-    }
-
-    .welcome-copy .role {
-      display: inline-block;
-      margin: 8px 0 0;
-      padding: 5px 10px;
-      font-size: 11px;
-      letter-spacing: 1px;
-      background: rgb(255 255 255 / 88%);
-      border: 1px dashed var(--dark-pink);
-    }
-
-    /* PHOTOS */
-
-    .photo {
-      position: absolute;
-      z-index: 8;
-      padding: 7px 7px 25px;
-      background: white;
-      box-shadow: 6px 8px 15px var(--shadow);
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-    }
-
-    .photo img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .photo:hover {
-      z-index: 40;
-      box-shadow: 11px 16px 30px rgb(95 43 70 / 38%);
-    }
-
-    .photo::after {
-      position: absolute;
-      right: 4px;
-      bottom: 6px;
-      left: 4px;
-      color: #98506f;
-      font-size: 9px;
-      text-align: center;
-    }
-
-    .photo-main {
-      bottom: 17px;
-      left: 50%;
-      width: 205px;
-      height: 276px;
-      transform: translateX(-50%) rotate(-1deg);
-    }
-
-    .photo-main:hover {
-      transform: translateX(-50%) rotate(0deg) scale(1.08);
-    }
-
-    .photo-main::after {
-      content: "EYLEEN.JPG ♡";
-    }
-
-    .photo-fashion {
-      bottom: 29px;
-      left: 40px;
-      width: 150px;
-      height: 216px;
-      transform: rotate(-8deg);
-    }
-
-    .photo-fashion:hover {
-      transform: rotate(-2deg) scale(1.09);
-    }
-
-    .photo-fashion::after {
-      content: "FASHION";
-    }
-
-    .photo-childhood {
-      right: 40px;
-      bottom: 32px;
-      width: 145px;
-      height: 195px;
-      transform: rotate(8deg);
-    }
-
-    .photo-childhood:hover {
-      transform: rotate(2deg) scale(1.09);
-    }
-
-    .photo-childhood::after {
-      content: "LITTLE ME ♡";
-    }
-
-    .photo-nyc {
-      top: 113px;
-      right: 16px;
-      width: 145px;
-      height: 116px;
-      padding-bottom: 20px;
-      transform: rotate(4deg);
-    }
-
-    .photo-nyc:hover {
-      transform: rotate(0deg) scale(1.09);
-    }
-
-    .photo-nyc::after {
-      content: "NEW YORK";
-    }
-
-    .photo-baby {
-      top: 120px;
-      left: 17px;
-      width: 122px;
-      height: 122px;
-      padding: 6px;
-      border-radius: 50%;
-      transform: rotate(-5deg);
-    }
-
-    .photo-baby img {
-      border-radius: 50%;
-    }
-
-    .photo-baby:hover {
-      transform: rotate(0deg) scale(1.12);
-    }
-
-    .sticker {
-      position: absolute;
-      z-index: 25;
-      right: 180px;
-      bottom: 25px;
-      color: white;
-      font-family: Georgia, serif;
-      font-size: 25px;
-      font-style: italic;
-      text-shadow:
-        2px 2px var(--dark-pink),
-        -1px -1px var(--dark-pink);
-      transform: rotate(-8deg);
-      pointer-events: none;
-    }
-
-    /* ICONS */
+    /* ICON ROW */
 
     .desktop-icons {
       position: absolute;
-      right: 16px;
-      bottom: 13px;
-      left: 16px;
-      z-index: 10;
+      right: 15px;
+      bottom: 12px;
+      left: 15px;
+      z-index: 20;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      gap: clamp(10px, 2.8vw, 45px);
+      gap: clamp(15px, 3.3vw, 58px);
     }
 
     .desktop-icon {
-      width: 90px;
+      width: 92px;
       padding: 4px;
       text-align: center;
       background: transparent;
@@ -498,8 +539,7 @@
     }
 
     .custom-icon {
-      object-fit: cover;
-      mix-blend-mode: multiply;
+      object-fit: contain;
     }
 
     .icon-label {
@@ -507,7 +547,7 @@
       padding: 2px 4px;
       font-size: 11px;
       font-weight: bold;
-      background: rgb(255 255 255 / 62%);
+      background: rgb(255 255 255 / 65%);
     }
 
     /* POP-UP WINDOWS */
@@ -640,71 +680,58 @@
 
     /* MOBILE */
 
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
       body {
         overflow: auto;
       }
 
       #desktop {
-        min-height: 850px;
-      }
-
-      .desktop-brand {
-        top: 14px;
-        left: 15px;
+        height: auto;
+        min-height: 1100px;
       }
 
       .welcome-window {
-        top: 315px;
-        width: 94vw;
-        height: 470px;
-        transform: translate(-50%, -50%);
+        top: 300px;
+        width: 90vw;
+        height: 390px;
       }
 
-      .welcome-copy h2 {
-        font-size: 38px;
+      .fashion-photo {
+        top: 510px;
+        left: 5%;
       }
 
-      .photo-main {
-        width: 175px;
-        height: 245px;
+      .childhood-photo {
+        top: 540px;
+        left: 35%;
       }
 
-      .photo-fashion {
-        left: 9px;
-        width: 118px;
-        height: 174px;
+      .baby-photo {
+        top: 500px;
+        left: 73%;
       }
 
-      .photo-childhood {
-        right: 9px;
-        width: 115px;
-        height: 165px;
+      .nyc-photo {
+        top: 730px;
+        right: auto;
+        left: 7%;
       }
 
-      .photo-baby {
-        top: 128px;
-        left: 7px;
-        width: 90px;
-        height: 90px;
+      .resume-preview {
+        top: 700px;
+        right: 8%;
+        bottom: auto;
       }
 
-      .photo-nyc {
-        top: 127px;
-        right: 7px;
-        width: 108px;
-        height: 90px;
-      }
-
-      .sticker {
-        display: none;
+      .resume-preview:hover {
+        transform: rotate(0deg) scale(1.35);
       }
 
       .desktop-icons {
-        bottom: 14px;
+        bottom: 15px;
         display: grid;
-        grid-template-columns: repeat(3, 90px);
-        gap: 12px 25px;
+        grid-template-columns: repeat(3, 92px);
+        gap: 15px 28px;
       }
 
       .portfolio-window {
@@ -729,6 +756,40 @@
         margin-left: auto;
       }
     }
+
+    @media (max-width: 600px) {
+      .welcome-content {
+        grid-template-columns: 44% 56%;
+      }
+
+      .welcome-copy h2 {
+        font-size: 35px;
+      }
+
+      .welcome-copy {
+        padding: 10px;
+      }
+
+      .fashion-photo {
+        width: 125px;
+        height: 185px;
+      }
+
+      .childhood-photo {
+        width: 115px;
+        height: 160px;
+      }
+
+      .nyc-photo {
+        width: 145px;
+        height: 130px;
+      }
+
+      .resume-preview {
+        width: 145px;
+        height: 190px;
+      }
+    }
   </style>
 </head>
 
@@ -737,7 +798,8 @@
   <!-- LOADING SCREEN -->
 
   <div id="loading-screen">
-    <div class="loading-window">
+
+    <div class="loading-window retro-box">
 
       <div class="title-bar">
         <span>EYLEEN.EXE</span>
@@ -782,9 +844,32 @@
     <span class="sparkle sparkle-four">✧</span>
     <span class="sparkle sparkle-five">✦</span>
 
+    <!-- LEFT PHOTOS -->
+
+    <figure class="photo-card fashion-photo">
+      <img
+        src="Fashion.JPG"
+        alt="Eyleen wearing a brown fashion look"
+      >
+    </figure>
+
+    <figure class="photo-card childhood-photo">
+      <img
+        src="Little me.jpg"
+        alt="Childhood photo of Eyleen"
+      >
+    </figure>
+
+    <figure class="photo-card baby-photo">
+      <img
+        src="Baby.jpeg"
+        alt="Eyleen's dog wearing a pink outfit"
+      >
+    </figure>
+
     <!-- CENTER WINDOW -->
 
-    <section class="welcome-window">
+    <section class="welcome-window retro-box">
 
       <div class="title-bar">
         <span>WELCOME_TO_MY_WORLD.EXE</span>
@@ -798,54 +883,54 @@
 
       <div class="welcome-content">
 
+        <div class="center-photo">
+          <img
+            src="Profile.JPG"
+            alt="Portrait of Eyleen Min"
+          >
+        </div>
+
         <div class="welcome-copy">
-          <p class="small-heading">Welcome to my portfolio</p>
+          <p class="small-heading">
+            Welcome to my portfolio
+          </p>
 
           <h2>Eyleen's World</h2>
 
           <p class="role">
-            FASHION PR · CREATIVE MARKETING · CONTENT
+            FASHION PR
+            <br>
+            CREATIVE MARKETING
+            <br>
+            CONTENT
+          </p>
+
+          <p class="welcome-message">
+            Dream big ♡
           </p>
         </div>
-
-        <figure class="photo photo-main">
-          <img
-            src="profile.jpg"
-            alt="Eyleen wearing a black fashion look"
-          >
-        </figure>
-
-        <figure class="photo photo-fashion">
-          <img
-            src="fashion.jpg"
-            alt="Eyleen wearing a brown fashion look"
-          >
-        </figure>
-
-        <figure class="photo photo-childhood">
-          <img
-            src="little me.jpg"
-            alt="Childhood photo of Eyleen"
-          >
-        </figure>
-
-        <figure class="photo photo-nyc">
-          <img
-            src="NYC.jpg"
-            alt="Eyleen in New York City"
-          >
-        </figure>
-
-        <figure class="photo photo-baby">
-          <img
-            src="baby.jpg"
-            alt="Eyleen's dog wearing a pink outfit"
-          >
-        </figure>
-
-        <div class="sticker">dream big ♡</div>
       </div>
     </section>
+
+    <!-- RIGHT PHOTOS -->
+
+    <figure class="photo-card nyc-photo">
+      <img
+        src="NYC.jpeg"
+        alt="Eyleen in New York City"
+      >
+    </figure>
+
+    <div
+      class="resume-preview"
+      onclick="window.open('Resume.pdf', '_blank')"
+      title="Click to open résumé"
+    >
+      <iframe
+        src="Resume.pdf#page=1&view=FitH"
+        title="Preview of Eyleen Min's resume"
+      ></iframe>
+    </div>
 
     <!-- ICON ROW -->
 
@@ -857,9 +942,10 @@
       >
         <img
           class="icon-image custom-icon"
-          src="icon.jpg"
+          src="icon.png"
           alt=""
         >
+
         <span class="icon-label">ABOUT ME</span>
       </button>
 
@@ -905,9 +991,12 @@
 
     </nav>
 
-    <!-- ABOUT ME WINDOW -->
+    <!-- ABOUT WINDOW -->
 
-    <section class="portfolio-window" id="about-window">
+    <section
+      class="portfolio-window retro-box"
+      id="about-window"
+    >
 
       <div class="title-bar">
         <span>ABOUT_ME.EXE</span>
@@ -958,7 +1047,10 @@
 
     <!-- CONTENT WINDOW -->
 
-    <section class="portfolio-window" id="content-window">
+    <section
+      class="portfolio-window retro-box"
+      id="content-window"
+    >
 
       <div class="title-bar">
         <span>CONTENT.EXE</span>
@@ -994,8 +1086,6 @@
           </p>
         </div>
 
-        <!-- Replace # with your TikTok URL -->
-
         <a class="link-button" href="#" target="_blank">
           View TikTok
         </a>
@@ -1004,7 +1094,10 @@
 
     <!-- PROJECTS WINDOW -->
 
-    <section class="portfolio-window" id="projects-window">
+    <section
+      class="portfolio-window retro-box"
+      id="projects-window"
+    >
 
       <div class="title-bar">
         <span>PROJECTS_FOLDER</span>
@@ -1056,7 +1149,10 @@
 
     <!-- RESUME WINDOW -->
 
-    <section class="portfolio-window" id="resume-window">
+    <section
+      class="portfolio-window retro-box"
+      id="resume-window"
+    >
 
       <div class="title-bar">
         <span>RESUME.PDF</span>
@@ -1096,15 +1192,22 @@
           </p>
         </div>
 
-        <a class="link-button" href="resume.pdf" target="_blank">
-          Download Résumé
+        <a
+          class="link-button"
+          href="Resume.pdf"
+          target="_blank"
+        >
+          View Full Résumé
         </a>
       </div>
     </section>
 
     <!-- CAPSTONE WINDOW -->
 
-    <section class="portfolio-window" id="capstone-window">
+    <section
+      class="portfolio-window retro-box"
+      id="capstone-window"
+    >
 
       <div class="title-bar">
         <span>CAPSTONE.PDF</span>
@@ -1139,7 +1242,7 @@
           shaped how counterfeit consumption was discussed and managed.
         </p>
 
-        <a class="link-button" href="capstone.pdf" target="_blank">
+        <a class="link-button" href="#" target="_blank">
           Read Capstone
         </a>
       </div>
@@ -1147,7 +1250,10 @@
 
     <!-- CONTACT WINDOW -->
 
-    <section class="portfolio-window" id="contact-window">
+    <section
+      class="portfolio-window retro-box"
+      id="contact-window"
+    >
 
       <div class="title-bar">
         <span>CONTACT.EXE</span>
@@ -1169,8 +1275,6 @@
           e-commerce.
         </p>
 
-        <!-- Replace the sample links -->
-
         <a
           class="link-button"
           href="mailto:youremail@example.com"
@@ -1178,19 +1282,11 @@
           Email Me
         </a>
 
-        <a
-          class="link-button"
-          href="#"
-          target="_blank"
-        >
+        <a class="link-button" href="#" target="_blank">
           LinkedIn
         </a>
 
-        <a
-          class="link-button"
-          href="#"
-          target="_blank"
-        >
+        <a class="link-button" href="#" target="_blank">
           TikTok
         </a>
       </div>
@@ -1233,8 +1329,6 @@
       document.getElementById(id).classList.remove("open");
     }
 
-    // Bring the selected window to the front.
-
     document
       .querySelectorAll(".portfolio-window")
       .forEach((selectedWindow) => {
@@ -1244,7 +1338,7 @@
         });
       });
 
-    // Make the windows draggable.
+    // Make the pop-up windows draggable.
 
     document
       .querySelectorAll(".portfolio-window")
@@ -1256,7 +1350,7 @@
         let offsetY = 0;
 
         handle.addEventListener("mousedown", (event) => {
-          if (window.innerWidth <= 800) {
+          if (window.innerWidth <= 900) {
             return;
           }
 

@@ -50,3 +50,16 @@ a,button{cursor:url("heart-cursor-large.png") 5 5,pointer}
 .secondary{background:#fff;color:var(--dark)}
 @media(max-width:900px){.me-photo{top:748px;right:7%;width:130px;height:180px}.nyc{top:755px;left:7%}}
 @media(max-width:540px){.me-photo{right:5%;top:756px;width:115px;height:160px}.project-card h2{font-size:25px}}
+
+/* Education and manual presentation */
+.education-card img{display:block;width:210px;max-width:100%;height:68px;object-fit:contain;object-position:left center;margin-bottom:10px}
+.education-card img.usc-logo{width:72px;height:72px;background:#ffcc00}
+.slide-page{width:min(1250px,96vw)}
+.slide-frame{width:100%;background:#151515;aspect-ratio:16/9;display:grid;place-items:center;box-shadow:8px 8px 0 #e7aac8}
+.slide-frame img{display:block;width:100%;height:100%;object-fit:contain}
+.slide-controls{display:flex;align-items:center;justify-content:center;gap:20px;margin:25px 0 12px}
+.slide-controls button{font:700 15px 'Courier New',monospace;min-width:132px}
+.slide-controls button:disabled{opacity:.45;cursor:default}
+.slide-controls output{font-weight:700;min-width:65px;text-align:center}
+.slide-note{font:14px/1.5 Arial,sans-serif;text-align:center}
+@media(max-width:540px){.slide-controls{gap:8px}.slide-controls button{min-width:100px;padding:8px}.slide-page .page-content{padding:15px}}

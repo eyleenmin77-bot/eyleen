@@ -30,3 +30,23 @@
 .progress-bar{width:0;height:100%;background:repeating-linear-gradient(90deg,var(--dark) 0,var(--dark) 12px,var(--mid) 12px,var(--mid) 16px);transition:width .12s linear}
 .boot-body p{margin:13px 0 0;font-size:13px}
 @keyframes bootPulse{from{transform:scale(.9)}to{transform:scale(1.15)}}
+
+/* Project gallery and additional desktop portrait */
+html,body{cursor:url("heart-cursor-large.png") 5 5,auto}
+a,button{cursor:url("heart-cursor-large.png") 5 5,pointer}
+.me-photo{right:14%;top:51%;width:145px;height:198px;transform:rotate(-7deg)}
+.me-photo img{object-position:center 61%}
+.me-photo:hover{transform:rotate(-1deg) scale(1.1)}
+.graph-paper{background-color:#fff9fc;background-image:linear-gradient(rgba(215,126,166,.17) 1px,transparent 1px),linear-gradient(90deg,rgba(215,126,166,.17) 1px,transparent 1px);background-size:24px 24px}
+.page:has(.placeholder) .page-content{background-color:#fff9fc;background-image:linear-gradient(rgba(215,126,166,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(215,126,166,.13) 1px,transparent 1px);background-size:24px 24px}
+.project-grid{align-items:stretch}
+.project-card{display:flex;flex-direction:column;border-left:2px solid #edb2ce;padding:14px 14px 22px;box-shadow:6px 6px 0 #f1bfd6}
+.project-card h2{font-size:27px;margin:10px 0 0}
+.project-card p{flex:1;margin:9px 0 17px}
+.deck-cover{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#efe5ea;border:1px solid #e6bbcf;transition:transform .25s ease,box-shadow .25s ease}
+.project-card a:hover .deck-cover,.motion-cover:hover{transform:scale(1.025);box-shadow:0 10px 22px rgba(100,43,71,.22)}
+.project-meta{margin-top:14px;color:#98506f;font-size:12px;letter-spacing:.06em;font-weight:bold}
+.deck-actions{display:flex;gap:9px;flex-wrap:wrap}
+.secondary{background:#fff;color:var(--dark)}
+@media(max-width:900px){.me-photo{top:748px;right:7%;width:130px;height:180px}.nyc{top:755px;left:7%}}
+@media(max-width:540px){.me-photo{right:5%;top:756px;width:115px;height:160px}.project-card h2{font-size:25px}}

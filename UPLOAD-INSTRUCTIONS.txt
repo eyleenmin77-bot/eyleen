@@ -1,0 +1,20 @@
+Eyleen portfolio update — September 2026
+
+1. Unzip the download on your Mac.
+2. Open the unzipped folder. Select all the files INSIDE it, not the enclosing folder.
+3. In the root of your GitHub eyleen repository, click Add file > Upload files.
+4. Drag the selected files into GitHub, wait for the upload list, and commit changes.
+5. The files index.html, styles.css, projects.html, Resume.pdf, and others with matching names will replace their older versions.
+6. Wait for the GitHub Pages deployment to finish and reload the site. Open a fresh incognito window to test the loading screen, which runs once per browsing session.
+
+Changes included:
+- New Resume.pdf
+- New Me.jpeg photo at the right of the homepage
+- Larger heart cursor image
+- Four real project deck cards: Moschino Market, Alpha Industries, Rains, and Loro Piana
+- Rains motion video and an accessible PDF copy
+- Soft notebook graph-paper texture on project and capstone-style pages
+
+Later, send your capstone images so that page can be completed.
+
+The project PDF and video files have been optimized for a standard GitHub web upload. Keep your original Canva exports separately for editing and archival use.

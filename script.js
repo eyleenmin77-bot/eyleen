@@ -1,1 +1,5 @@
-const clock=document.querySelector('[data-clock]');function tick(){if(clock)clock.textContent=new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})}tick();setInterval(tick,1000);const boot=document.getElementById('boot');if(boot){if(sessionStorage.getItem('eyleenBootSeen')){boot.remove()}else{const bar=document.getElementById('progressBar');const label=document.getElementById('progressText');let progress=0;const timer=setInterval(()=>{progress=Math.min(100,progress+Math.floor(Math.random()*10)+7);if(bar)bar.style.width=progress+'%';if(label)label.textContent="Connecting to Eyleen's World... "+progress+'%';if(progress===100){clearInterval(timer);sessionStorage.setItem('eyleenBootSeen','yes');setTimeout(()=>{boot.classList.add('hidden');setTimeout(()=>boot.remove(),600)},300)}},110)}}
+(function(){
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('[data-clock]').forEach(function(el){el.textContent=new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});});
+  });
+})();

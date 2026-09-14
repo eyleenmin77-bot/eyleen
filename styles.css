@@ -19,3 +19,53 @@ body:not(.cyworld-body){background:radial-gradient(circle,rgba(255,255,255,.7) 1
 @media(max-width:850px){.mini-layout{grid-template-columns:170px minmax(0,1fr) 78px}.side-tabs a{font-size:8px}.photo-thumb{aspect-ratio:1/1}}@media(max-width:700px){.scene{padding-top:20px}.mini-layout{grid-template-columns:1fr}.profile-column{display:none}.side-tabs{display:grid;grid-template-columns:repeat(4,1fr);padding-top:5px}.side-tabs a{border-radius:3px}.mini-welcome{display:none}.card-grid{grid-template-columns:1fr}.page-content{padding:22px}.compact-intro{grid-template-columns:1fr}.about-portrait{max-width:260px;margin:4px auto 0}.school-entry{grid-template-columns:92px 1fr}.school-photo{width:92px;height:92px}.school-photo img{height:59px}.task-title{display:none}}
 
 [data-clock]{min-width:82px;padding:8px 10px;text-align:center;background:rgba(255,255,255,.5);border:2px solid;border-color:var(--dark) #fff #fff var(--dark);font:700 12px Arial,sans-serif;color:var(--dark)}
+
+/* FINAL HOME TIGHTENING + MINI MP3 PLAYER */
+.cyworld-body{overflow:hidden}
+.scene{height:calc(100vh - 50px);min-height:0;padding:26px 0 10px}
+.mini-home{width:min(970px,94vw);max-height:calc(100vh - 86px);padding:10px 10px 8px}
+.mini-header{height:36px}
+.mini-layout{max-height:calc(100vh - 145px);overflow:hidden}
+.profile-column{padding:9px 8px 10px}
+.profile-box{padding:4px 7px}
+.profile-photo{width:116px;height:116px;margin:1px auto 6px}
+.profile-intro{margin:9px 2px 10px;line-height:1.35}
+.history{padding-top:6px}
+.history div{padding:4px 0}
+.history span{line-height:1.25}
+.music-box{margin:7px 0 0;padding-top:6px}
+.mp3-player{padding:5px 5px 4px;background:linear-gradient(#fbd8e8,#f4bcd4);border:1px solid #c98da7;border-radius:5px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.65),2px 2px 0 #dfc2cc}
+.mp3-title{text-align:center;font:700 8px Arial,sans-serif;letter-spacing:.3px;color:#8c4965;margin-bottom:4px}
+.mp3-screen{padding:5px 5px 4px;background:#fff7fa;border:1px solid #cfa8b7;box-shadow:inset 1px 1px 2px rgba(90,45,65,.12)}
+.mp3-artist{font:700 8px Arial,sans-serif;color:#d05f8a;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mp3-song{font:700 8px/1.25 Arial,sans-serif;color:#666;min-height:20px}
+.mp3-progress{height:4px;margin:5px 0 2px;background:#ead6df;border:1px solid #d5b7c2}
+.mp3-progress span{display:block;width:27%;height:100%;background:#d95b96}
+.mp3-time{display:flex;justify-content:space-between;font:7px Arial,sans-serif;color:#999}
+.mp3-controls{display:flex;justify-content:center;gap:5px;margin-top:4px}
+.mp3-controls button{width:21px;height:16px;padding:0;border:1px solid #b97b98;background:#fff4f8;color:#8e4b68;font:9px Arial;line-height:12px;cursor:pointer}
+.mp3-controls button:hover{background:#fff;color:#d95b96}
+.mp3-notes{text-align:center;font:9px Georgia,serif;color:#c85d87;letter-spacing:2px;margin-top:2px}
+.center-column{padding:9px 10px 10px}
+.welcome-title{padding:2px 6px 6px;font-size:13px}
+.section-heading{height:25px;padding:2px 4px 4px}
+.section-heading b{font-size:12px}
+.section-heading span{font-size:7px}
+.miniroom{max-height:calc((100vh - 250px) * .64);}
+.miniroom img{width:100%;height:auto;max-height:100%;object-fit:contain}
+.photo-album{margin-top:4px}
+.thumbs{gap:6px;padding:5px 2px 2px}
+.photo-thumb{padding:3px;box-shadow:1px 1px 0 #ead7de}
+.side-tabs{padding-top:29px}
+.side-tabs a{padding:8px 2px;font-size:7px}
+.mini-footer{height:23px}
+@media(max-height:800px) and (min-width:701px){
+  .scene{padding-top:16px}
+  .mini-home{max-height:calc(100vh - 66px)}
+  .mini-layout{max-height:calc(100vh - 120px)}
+  .profile-photo{width:104px;height:104px}
+  .profile-intro{margin:6px 2px 7px}
+  .history div{padding:3px 0}
+  .history span{font-size:9px}
+  .miniroom{max-height:calc((100vh - 220px) * .60)}
+}

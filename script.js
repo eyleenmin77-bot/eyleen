@@ -32,3 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
   modal?.addEventListener("click", e => { if (e.target === modal) close(); });
   document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
 });
+
+
+function updateClock(){
+  document.querySelectorAll('[data-clock]').forEach(el=>{
+    const now=new Date();
+    el.textContent=now.toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
+  });
+}
+updateClock();
+setInterval(updateClock,1000);

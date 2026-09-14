@@ -1,80 +1,172 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Eyleen Min | Portfolio</title><link rel="icon" href="icon.png"><link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eyleen's Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Silkscreen:wght@400;700&display=swap');
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:DotGothic16,Arial,sans-serif;color:#4d5260}
+body{
+  background:
+    radial-gradient(circle at 12% 18%,rgba(255,255,255,.92) 0 46px,transparent 47px),
+    radial-gradient(circle at 17% 17%,rgba(255,255,255,.92) 0 62px,transparent 63px),
+    radial-gradient(circle at 86% 24%,rgba(255,255,255,.85) 0 55px,transparent 56px),
+    linear-gradient(#f9c7d9 0 63%,#f7dce6 63% 100%);
+  overflow-x:hidden;
+}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.35) 1px,transparent 1px);background-size:5px 5px;opacity:.45}
+.skyline{position:fixed;left:0;right:0;bottom:0;height:27vh;min-height:180px;opacity:.20;pointer-events:none}
+.skyline span{position:absolute;bottom:0;background:#9b7e94;border-radius:2px 2px 0 0}
+.wrap{width:min(1000px,94vw);margin:42px auto 70px}
+.journal{
+  position:relative;background:#fff;border:1px solid #d4d5dc;border-radius:7px;
+  box-shadow:0 14px 45px rgba(106,76,97,.18);padding:16px 54px 22px 16px;
+}
+.tape{position:absolute;top:-13px;left:45%;width:120px;height:28px;background:#f8e4a9;opacity:.72;transform:rotate(-2deg);box-shadow:0 2px 3px #d9c8aa}
+.header{height:54px;border:1px solid #d9dbe2;background:#fff;display:flex;align-items:center;padding:0 14px;gap:14px}
+.brand{font-family:Silkscreen;font-size:16px;color:#5876a7;letter-spacing:-1px}
+.welcome{font-size:13px;color:#777;margin-left:auto}
+.main{display:grid;grid-template-columns:190px 1fr;gap:18px;padding-top:14px}
+.profile{border:1px solid #d9dbe2;background:#fafbfe;padding:12px;min-height:565px}
+.profile-photo{width:100%;height:150px;object-fit:cover;object-position:center;border:1px solid #d5d7de;background:white}
+.name{font-family:Silkscreen;font-size:14px;color:#566e9d;margin:10px 0 3px}
+.role{font-size:11px;color:#888;line-height:1.5}
+.rule{height:1px;background:#dfe1e7;margin:12px 0}
+.label{font-family:Silkscreen;font-size:9px;color:#7181a0;letter-spacing:.5px}
+.history{font-size:10px;line-height:1.7;margin-top:5px}
+.history b{color:#596b8f}
+.small-note{font-size:10px;line-height:1.6;color:#8a8d96;margin-top:10px}
+.content{min-width:0}
+.intro{padding:3px 8px 12px}
+.intro h1{font-family:Silkscreen;font-size:20px;font-weight:700;color:#4f6f9f;margin:0 0 6px}
+.intro p{font-size:11px;line-height:1.7;margin:0;color:#737680}
+.room-wrap{border:1px solid #ccd2dc;background:#eef3f8;padding:8px;box-shadow:inset 0 0 0 3px #fff}
+.room-head{height:25px;background:#6f8fb9;color:white;display:flex;align-items:center;padding:0 9px;font-size:10px}
+.room-head span:last-child{margin-left:auto;opacity:.8}
+.room{position:relative;height:335px;overflow:hidden;
+ background:linear-gradient(#f8dce8 0 61%,#f0c9b4 61% 78%,#dbaeb7 78%);
+ image-rendering:pixelated;
+}
+.wall-paper{position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.13) 0 2px,transparent 2px 18px);opacity:.7}
+.window{position:absolute;right:28px;top:34px;width:245px;height:155px;background:#9ed4ef;border:8px solid #fff;box-shadow:0 0 0 2px #b8a8b7}
+.window:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:5px;background:#fff}
+.window:after{content:"";position:absolute;left:0;right:0;top:50%;height:5px;background:#fff}
+.city{position:absolute;bottom:0;left:0;right:0;height:70px}
+.city i{position:absolute;bottom:0;background:#76859c}
+.city i:nth-child(1){left:4%;width:25px;height:42px}.city i:nth-child(2){left:15%;width:39px;height:60px}.city i:nth-child(3){left:29%;width:24px;height:32px}.city i:nth-child(4){left:40%;width:48px;height:75px}.city i:nth-child(5){left:57%;width:30px;height:47px}.city i:nth-child(6){left:68%;width:55px;height:63px}.city i:nth-child(7){left:84%;width:31px;height:38px}
+.city:after{content:"";position:absolute;bottom:0;left:0;right:0;height:9px;background:#596a82}
+.rug{position:absolute;left:52px;bottom:27px;width:400px;height:65px;background:#eaaec5;border:3px solid #d68da9;transform:skewX(-8deg);opacity:.9}
+.floorline{position:absolute;left:0;right:0;bottom:20px;height:7px;background:#bd7f92}
+.desk{position:absolute;left:145px;bottom:77px;width:245px;height:14px;background:#a87968;border:3px solid #855e59}
+.desk:before,.desk:after{content:"";position:absolute;top:11px;width:11px;height:78px;background:#855e59}.desk:before{left:12px}.desk:after{right:12px}
+.laptop{position:absolute;left:224px;bottom:91px;width:72px;height:46px;background:#eaa8bf;border:4px solid #9e6f87;z-index:4;transform:skewY(-3deg)}
+.laptop:after{content:"";position:absolute;left:-9px;right:-9px;bottom:-9px;height:8px;background:#c98aa5;border:3px solid #9e6f87}
+.screen{position:absolute;inset:6px;background:#fff1f7;border:2px solid #b77894}.screen:after{content:"♥";position:absolute;left:27px;top:8px;color:#ef8faf;font-size:14px}
+.chair{position:absolute;left:311px;bottom:57px;width:60px;height:82px;background:#b38ba5;border:4px solid #80627d;border-radius:16px 16px 7px 7px;z-index:3}
+.chair:after{content:"";position:absolute;left:24px;top:78px;width:8px;height:36px;background:#80627d}
+.plant{position:absolute;left:70px;bottom:82px;width:62px;height:95px;z-index:2}.plant:before{content:"";position:absolute;bottom:0;left:13px;width:38px;height:32px;background:#df9e9e;border:3px solid #a97878}.plant:after{content:"✦  ♡  ✦";position:absolute;top:0;left:-5px;color:#7d9f83;font-size:22px;line-height:28px}
+.bed{position:absolute;right:28px;bottom:33px;width:250px;height:92px;background:#f5b8ce;border:4px solid #b47d95;border-radius:8px 8px 0 0;z-index:2}.bed:before{content:"";position:absolute;left:8px;right:8px;top:8px;height:43px;background:#fff0f6;border:3px solid #d99ab2}.bed:after{content:"♡";position:absolute;right:18px;top:12px;color:#ef9ab5;font-size:22px}
+.character{position:absolute;left:258px;bottom:89px;width:68px;height:95px;z-index:6;image-rendering:pixelated}
+.character .hair{position:absolute;left:15px;top:0;width:40px;height:42px;background:#292631;border:3px solid #181620;border-radius:18px 18px 11px 11px}
+.character .face{position:absolute;left:22px;top:17px;width:27px;height:28px;background:#f4c7aa;border:2px solid #bd8b7b;z-index:2}
+.character .body{position:absolute;left:12px;top:43px;width:48px;height:43px;background:#f4b6cf;border:3px solid #9b6d88;border-radius:12px 12px 3px 3px}
+.character .arm{position:absolute;left:3px;top:53px;width:25px;height:10px;background:#f4c7aa;border:2px solid #bd8b7b;transform:rotate(12deg);z-index:7}
+.character .skirt{position:absolute;left:13px;top:78px;width:46px;height:20px;background:#d9b2e6;border:3px solid #8d729d}
+.character .eye1,.character .eye2{position:absolute;top:30px;width:4px;height:4px;background:#443746;z-index:4}.eye1{left:28px}.eye2{left:40px}
+.character .bow{position:absolute;left:11px;top:3px;color:#ef91b0;font-size:18px;z-index:5}
+.wall-decor{position:absolute;left:26px;top:35px;width:100px;height:70px;background:#fff7f9;border:4px solid #d99db3;box-shadow:7px 7px 0 #f1c4d4;transform:rotate(-3deg)}
+.wall-decor:after{content:"FASHION  ♡";position:absolute;left:12px;top:25px;font-family:Silkscreen;font-size:8px;color:#8d7182}
+.shelf{position:absolute;left:34px;top:136px;width:102px;height:9px;background:#9b7268}.shelf:after{content:"♡  ✦  ♡";position:absolute;left:12px;top:-28px;font-size:16px;color:#d883a2}
+.photo-story{margin-top:12px;border:1px solid #d8dbe2;background:#fff;padding:9px}
+.section-title{font-family:Silkscreen;color:#637aa1;font-size:11px;margin-bottom:7px}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.photos a{display:block;height:116px;background:#f8f8fa;border:1px solid #d8d9df;padding:4px}
+.photos img{width:100%;height:100%;object-fit:contain;display:block}
+.caption{font-size:9px;color:#858994;text-align:center;margin-top:4px}
+.journal-tabs{position:absolute;right:-1px;top:112px;width:55px;display:flex;flex-direction:column}
+.tab{
+ height:57px;background:#dbe6f4;border:1px solid #9eb1cc;border-left:0;
+ border-radius:0 5px 5px 0;margin:0 0 -1px 0;
+ display:flex;align-items:center;justify-content:center;
+ writing-mode:vertical-rl;transform:none;text-decoration:none;color:#60769a;
+ font-family:Silkscreen;font-size:8px;letter-spacing:.3px;
+ box-shadow:2px 1px 0 rgba(94,113,145,.12);transition:.15s;
+}
+.tab:nth-child(2){background:#f8d9e5}.tab:nth-child(3){background:#e6e0f3}.tab:nth-child(4){background:#f5e3bd}.tab:nth-child(5){background:#dceee3}.tab:nth-child(6){background:#dce8f5}.tab:nth-child(7){background:#f4d8e4}
+.tab:hover{width:61px;color:#415b82;filter:brightness(.98)}
+.footer{text-align:center;font-size:9px;color:#a19aa2;margin-top:12px}
+@media(max-width:760px){.wrap{margin-top:25px}.journal{padding-right:45px}.main{grid-template-columns:1fr}.profile{min-height:0}.profile-photo{height:190px}.journal-tabs{right:-1px;top:95px}.room{height:300px}.window{right:12px;width:190px}.bed{right:10px;width:190px}.desk{left:70px;width:190px}.laptop{left:140px}.character{left:175px}.rug{left:25px;width:320px}.photos{grid-template-columns:1fr}}
+</style>
 </head>
-<body class="cyworld-body">
-<div class="scene">
-  <div class="cloud cloud-a"></div><div class="cloud cloud-b"></div><div class="cloud cloud-c"></div>
-  <main class="mini-home">
-    <header class="mini-header">
-      <div class="mini-brand">Eyleen's Portfolio</div>
-      <div class="mini-welcome">Welcome to my portfolio ♡</div>
+<body>
+<div class="skyline">
+<span style="left:3%;width:45px;height:90px"></span><span style="left:9%;width:70px;height:145px"></span><span style="left:19%;width:35px;height:110px"></span><span style="left:27%;width:90px;height:175px"></span><span style="left:39%;width:55px;height:120px"></span><span style="left:48%;width:100px;height:200px"></span><span style="left:61%;width:58px;height:145px"></span><span style="left:70%;width:92px;height:190px"></span><span style="left:82%;width:45px;height:125px"></span><span style="left:89%;width:80px;height:160px"></span>
+</div>
+<div class="wrap">
+  <section class="journal">
+    <div class="tape"></div>
+    <header class="header">
+      <div class="brand">EYLEEN'S WORLD ♡</div>
+      <div class="welcome">WELCOME TO MY PORTFOLIO</div>
     </header>
-    <div class="mini-layout">
-      <aside class="profile-column">
-        <div class="profile-box">
-          <div class="profile-photo"><img src="Profile.JPG" alt="Eyleen Min"></div>
-          <h1>Eyleen Min</h1>
-          <p class="profile-role">FASHION · BEAUTY · LIFESTYLE</p>
-          <p class="profile-intro">PR, brand communications, creator partnerships, and fashion business.</p>
-          <div class="history">
-            <h2>HISTORY</h2>
-            <div><b>AZIONE PR</b><span>PR Intern · NYC</span></div>
-            <div><b>PARSONS</b><span>M.P.S. Fashion Management</span></div>
-            <div><b>USC</b><span>B.A. Sociology</span></div>
+    <div class="main">
+      <aside class="profile">
+        <img class="profile-photo" src="Profile.JPG" alt="Eyleen">
+        <div class="name">Eyleen Min</div>
+        <div class="role">Fashion · PR · Brand Communications<br>New York / Los Angeles</div>
+        <div class="rule"></div>
+        <div class="label">HISTORY</div>
+        <div class="history">
+          <div class="history-entry"><b>AZIONE PR</b><span>PR Intern · New York<br>Fashion, beauty & lifestyle communications</span></div>
+          <div class="history-entry"><b>PARSONS SCHOOL OF DESIGN</b><span>M.P.S. Fashion Management<br>2025–2026 · 3.85 GPA</span></div>
+          <div class="history-entry"><b>UNIVERSITY OF SOUTHERN CALIFORNIA</b><span>B.A. Sociology<br>2018–2023 · 3.5 GPA</span></div>
+          <div class="history-entry"><b>CREATOR EXPERIENCE</b><span>10.5M+ views · 1.6M total likes<br>@babyl33n</span></div>
+        </div>
+        <div class="rule"></div>
+        <div class="label">A LITTLE ABOUT ME</div>
+        <div class="small-note">I like fashion, beauty, good branding, and figuring out why people care about a brand.</div>
+        <div class="rule"></div>
+        <div class="label">CURRENTLY</div>
+        <div class="small-note">Building a career in fashion, beauty & lifestyle communications ♡</div>
+      </aside>
+      <main class="content">
+        <div class="intro">
+          <h1>WELCOME TO MY PORTFOLIO ♡</h1>
+          <p>A little corner of the internet for my work in fashion, beauty, PR, content, and brand storytelling.</p>
+        </div>
+        <div class="room-wrap">
+          <div class="room-head"><span>MY MINI ROOM</span><span>NEW YORK, NY ♡</span></div>
+          <div class="room">
+            <div class="wall-paper"></div><div class="window"><div class="city"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <div class="wall-decor"></div><div class="shelf"></div><div class="plant"></div><div class="rug"></div><div class="desk"></div>
+            <div class="laptop"><div class="screen"></div></div><div class="chair"></div><div class="bed"></div>
+            <div class="character"><div class="hair"></div><div class="bow">♡</div><div class="face"></div><div class="eye1"></div><div class="eye2"></div><div class="body"></div><div class="arm"></div><div class="skirt"></div></div>
+            <div class="floorline"></div>
           </div>
         </div>
-      </aside>
-
-      <section class="center-column">
-        <div class="welcome-title">WELCOME TO MY PORTFOLIO</div>
-        <section class="miniroom-section">
-          <div class="section-heading"><b>Mini Room</b><span>Eyleen at work in NYC ♡</span></div>
-          <div class="miniroom" aria-label="Pixel art mini room with Eyleen working at a pink laptop overlooking New York City">
-            <div class="skyline">
-              <i style="height:35px"></i><i style="height:58px"></i><i style="height:44px"></i><i style="height:78px"></i><i style="height:50px"></i><i style="height:96px"></i><i style="height:63px"></i><i style="height:41px"></i><i style="height:72px"></i><i style="height:54px"></i><i style="height:88px"></i>
-            </div>
-            <div class="window-frame"><div class="window-glow"></div><div class="window-line vertical"></div><div class="window-line horizontal"></div></div>
-            <div class="wall-art">EYLEEN<br><small>NYC</small></div>
-            <div class="shelf"><span>♡</span><span>✦</span><span>♡</span></div>
-            <div class="desk"><div class="desk-top"></div><div class="desk-leg left"></div><div class="desk-leg right"></div></div>
-            <div class="pink-laptop"><div class="screen"><span>✦</span></div><div class="keyboard"></div></div>
-            <div class="character">
-              <div class="hair"></div><div class="face"></div><div class="neck"></div><div class="shirt"></div><div class="arm left-arm"></div><div class="arm right-arm"></div><div class="skirt"></div><div class="leg left-leg"></div><div class="leg right-leg"></div><div class="shoe left-shoe"></div><div class="shoe right-shoe"></div>
-            </div>
-            <div class="chair"><div class="chair-back"></div><div class="chair-seat"></div><div class="chair-leg"></div></div>
-            <div class="plant"><span class="leaf l1"></span><span class="leaf l2"></span><span class="leaf l3"></span><span class="pot"></span></div>
-            <div class="floor-rug"></div>
-            <div class="sparkle p1">✦</div><div class="sparkle p2">♡</div><div class="sparkle p3">✧</div>
+        <section class="photo-story">
+          <div class="section-title">PHOTO STORY ♡</div>
+          <div class="photos">
+            <div><a href="content.html"><img src="Fashion.JPG" alt="Fashion"></a><div class="caption">FASHION</div></div>
+            <div><a href="content.html"><img src="NYC.jpeg" alt="New York"></a><div class="caption">NEW YORK</div></div>
+            <div><a href="content.html"><img src="Little me.jpg" alt="Little Eyleen"></a><div class="caption">LITTLE ME</div></div>
           </div>
         </section>
-
-        <section class="photo-album">
-          <div class="section-heading"><b>Photo Story</b><span>Selected moments</span></div>
-          <div class="thumbs">
-            <a href="content.html"><img src="Me.jpeg" alt="Eyleen"></a>
-            <a href="content.html"><img src="Fashion.JPG" alt="Fashion"></a>
-            <a href="content.html"><img src="eyleen-nyc-photo-fixed.jpeg" alt="New York City"></a>
-            <a href="content.html"><img src="Little me.jpg" alt="Eyleen as a child"></a>
-            <a href="content.html"><img src="eyleen-baby-photo-fixed.jpeg" alt="Eyleen's dog"></a>
-          </div>
-        </section>
-      </section>
-
-      <nav class="side-tabs" aria-label="Portfolio navigation">
-        <a class="selected" href="index.html">HOME</a>
-        <a href="about.html">ABOUT ME</a>
-        <a href="content.html">TIKTOK</a>
-        <a href="projects.html">PROJECTS</a>
-        <a href="resume.html">RESUME</a>
-        <a href="capstone.html">CAPSTONE</a>
-        <a href="contact.html">CONTACT</a>
-      </nav>
+      </main>
     </div>
-    <footer class="mini-footer"><span>Eyleen Min · Fashion · Beauty · Lifestyle</span><span>♡</span></footer>
-  </main>
+    <nav class="journal-tabs" aria-label="Portfolio navigation">
+      <a class="tab" href="index.html">HOME</a>
+      <a class="tab" href="about.html">ABOUT ME</a>
+      <a class="tab" href="content.html">TIKTOK</a>
+      <a class="tab" href="projects.html">PROJECTS</a>
+      <a class="tab" href="resume.html">RESUME</a>
+      <a class="tab" href="capstone.html">CAPSTONE</a>
+      <a class="tab" href="contact.html">CONTACT</a>
+    </nav>
+    <div class="footer">Eyleen Min · Fashion, Beauty & Lifestyle ♡</div>
+  </section>
 </div>
-<script src="script.js"></script>
-</body></html>
+</body>
+</html>

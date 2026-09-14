@@ -11,92 +11,18 @@
 body:not(.cyworld-body){background:radial-gradient(circle,rgba(255,255,255,.7) 1px,transparent 2px) 0 0/28px 28px,linear-gradient(135deg,#fff0f7,#f5c3db 55%,#e99ac0);cursor:url("heart-cursor-large.png") 6 4,auto}.titlebar{display:flex;align-items:center;justify-content:space-between;height:36px;padding:5px 10px;color:#fff;font-weight:700;background:linear-gradient(90deg,#a63f70,#eb8ab7);font-family:"Silkscreen",monospace;font-size:11px}.retro{background:var(--pink);border:3px solid;border-color:#fff var(--dark) var(--dark) #fff;box-shadow:10px 10px 0 var(--shadow);padding:5px}.button{display:inline-block;padding:9px 14px;color:#fff;background:var(--dark);border:2px solid;border-color:#ffdceb #71304f #71304f #ffdceb;text-decoration:none;font-weight:700}.close{color:var(--ink);background:var(--pale);border:2px solid;border-color:#fff var(--dark) var(--dark) #fff;padding:2px 8px}.site-header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px}.brand{color:var(--dark);font-family:"Silkscreen",monospace;font-size:24px;text-decoration:none;text-shadow:2px 2px #fff}.home-link{color:var(--dark);font-weight:700;font-family:"Pixelify Sans",sans-serif}.page{width:min(1000px,92vw);margin:20px auto 90px}.page-window{min-height:560px}.page-content{padding:34px;background:rgba(255,255,255,.9);border:2px solid;border-color:var(--dark) #fff #fff var(--dark)}h1,h2{color:var(--dark);font-family:"Silkscreen",monospace;font-weight:400}h1{font-size:clamp(34px,6vw,64px);margin:0 0 15px}h2{font-size:25px}.lead{max-width:720px;font:500 17px/1.7 "DM Sans",Arial,sans-serif}.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:28px}.card{padding:20px;background:#fff;border:2px solid #edb2ce;border-left:6px solid var(--mid);box-shadow:4px 4px 0 #f1bfd6}.card p{font:16px/1.6 "DM Sans",Arial,sans-serif}.placeholder{display:grid;place-items:center;min-height:220px;margin-bottom:16px;color:#9a5874;background:repeating-linear-gradient(45deg,#fff5f9,#fff5f9 10px,#fbe4ef 10px,#fbe4ef 20px);border:2px dashed var(--mid);text-align:center;padding:18px}.contact-list{display:grid;gap:18px;margin-top:28px}.contact-item{padding:20px;color:var(--ink);background:#fff;border:2px solid #edb2ce;text-decoration:none;font-weight:700}.contact-item:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--mid)}.taskbar{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:flex;align-items:center;height:50px;gap:8px;padding:5px;background:var(--pink);border-top:3px solid #fff}.start{padding:8px 14px;background:var(--pale);border:3px solid;border-color:#fff var(--dark) var(--dark) #fff;font-weight:700;text-decoration:none;color:var(--dark)}.task-title{flex:1;padding:8px 12px;background:rgba(255,255,255,.35);border:2px solid;border-color:var(--dark) #fff #fff var(--dark)}.graph-paper{background-color:#fff9fc;background-image:linear-gradient(rgba(215,126,166,.17) 1px,transparent 1px),linear-gradient(90deg,rgba(215,126,166,.17) 1px,transparent 1px);background-size:24px 24px}.project-grid{align-items:stretch}.project-card{display:flex;flex-direction:column;border-left:2px solid #edb2ce;padding:14px 14px 22px;box-shadow:6px 6px 0 #f1bfd6}.project-card h2{font-size:27px;margin:10px 0 0}.project-card p{flex:1;margin:9px 0 17px}.deck-cover{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#efe5ea;border:1px solid #e6bbcf}.content-video{width:100%;display:block;border:1px solid #edb2ce;background:#000}.about-heading{text-align:center;max-width:760px;margin:0 auto 25px}.about-heading .eyebrow{font-family:"Pixelify Sans",sans-serif;color:var(--hot);letter-spacing:2px;font-size:13px;margin:0 0 7px}.about-heading h1{margin-bottom:10px}.compact-intro{align-items:start;display:grid;grid-template-columns:minmax(0,1fr) 225px;gap:30px;margin-top:4px}.compact-intro .about-intro-copy p{font:500 16px/1.65 "DM Sans",Arial,sans-serif;margin:0 0 13px}.about-portrait{margin:0;padding:9px 9px 28px;background:#fff;box-shadow:7px 8px 0 #e8acc8;transform:rotate(2deg)}.about-portrait img{display:block;width:100%;height:210px;object-fit:cover}.about-portrait figcaption{text-align:center;margin-top:7px;font-family:"Pixelify Sans",sans-serif;font-size:11px;color:#98506f}.stripe-divider{height:15px;margin:30px 0 24px;background:repeating-linear-gradient(90deg,#f58fbc 0,#f58fbc 26px,#fff 26px,#fff 52px);border:2px solid #fff;box-shadow:0 3px 0 #e8acc8}.about-cards{margin-top:0}.about-card{position:relative;overflow:hidden;min-height:300px;border-left:3px solid var(--mid);padding:24px}.about-card:before{content:"";position:absolute;top:0;right:0;width:70px;height:9px;background:repeating-linear-gradient(90deg,#f58fbc 0,#f58fbc 14px,#fff 14px,#fff 28px)}.card-kicker{font-family:"Pixelify Sans",sans-serif;color:var(--hot);font-size:12px;letter-spacing:1px;margin-bottom:8px}.about-card h2{margin:0 0 18px;font-size:24px}.about-card p{margin:8px 0}.about-card strong{color:var(--dark)}.education-stack{display:grid;gap:22px;padding:2px 8px 4px 4px}.school-entry{display:grid;grid-template-columns:112px 1fr;gap:17px;align-items:center}.school-photo{position:relative;width:112px;height:105px;padding:9px 9px 23px;background:#fff;border:1px solid #ead2dc;box-shadow:4px 5px 0 #edb2ce;transform:rotate(-4deg)}.school-parsons .school-photo{transform:rotate(4deg);box-shadow:-3px 5px 0 #edb2ce}.school-photo:before{content:"";position:absolute;top:-5px;left:30px;width:48px;height:12px;background:rgba(248,190,214,.78);transform:rotate(-3deg)}.school-photo img{display:block;width:100%;height:72px;object-fit:contain}.school-photo img[src*="usc-mark"]{background:#ffcc00;padding:6px}.school-photo span{position:absolute;left:0;right:0;bottom:5px;text-align:center;font:600 9px/1 "Pixelify Sans",sans-serif;color:#98506f}.school-copy h3{font-size:16px;line-height:1.2;margin:0 0 5px}.school-copy p{font-size:14px!important;font-weight:600;margin:0 0 3px!important;line-height:1.35!important}.school-copy span{font-size:11px;color:#98506f}.why-me{background:linear-gradient(135deg,#fff,#fff4f9)}.why-line{font-family:"Silkscreen",monospace!important;color:var(--hot)!important;font-size:13px!important;line-height:1.7!important;margin-top:18px!important}.about-footer{max-width:700px;margin:28px auto 0;text-align:center}.about-footer h2{font-size:21px;margin-bottom:8px}.about-footer p{line-height:1.7;margin:0}.bottom-stripe{margin-top:30px;margin-bottom:18px}
 @media(max-width:850px){.mini-layout{grid-template-columns:170px minmax(0,1fr) 78px}.miniroom{height:330px}.side-tabs a{font-size:8px}.photo-thumb{aspect-ratio:1/1}}@media(max-width:700px){.scene{padding-top:20px}.mini-layout{grid-template-columns:1fr}.profile-column{display:none}.side-tabs{display:grid;grid-template-columns:repeat(4,1fr);padding-top:5px}.side-tabs a{border-radius:3px}.miniroom{height:310px}.mini-welcome{display:none}.card-grid{grid-template-columns:1fr}.page-content{padding:22px}.compact-intro{grid-template-columns:1fr}.about-portrait{max-width:260px;margin:4px auto 0}.school-entry{grid-template-columns:92px 1fr}.school-photo{width:92px;height:92px}.school-photo img{height:59px}.task-title{display:none}}
 
-/* V9: notebook binding + attached journal tabs. Keep all content and photos unchanged. */
-.mini-home{
-  border:1px solid #9c9c9c;
-  border-radius:8px;
-  box-shadow:0 8px 28px rgba(92,50,68,.18), inset 0 0 0 1px rgba(255,255,255,.85);
-  background:#fffdfd;
-}
+/* V10: one continuous notebook coil between the two pages. Everything else stays unchanged. */
 .mini-layout{position:relative;}
-
-/* V10: real notebook-style spiral rings between the two pages */
 .spiral-binding{
   position:absolute;
-  left:174px;
-  top:42px;
+  left:166px;
+  top:9px;
+  bottom:9px;
   width:34px;
-  height:430px;
   z-index:25;
   pointer-events:none;
+  display:block;
 }
-.spiral-ring{
-  position:absolute;
-  left:0;
-  width:32px;
-  height:43px;
-  border:3px solid #8a8a8a;
-  border-radius:50%;
-  background:linear-gradient(90deg,rgba(255,255,255,.92),rgba(220,220,220,.7) 48%,rgba(255,255,255,.92));
-  box-shadow:inset 1px 1px 0 #fff, 1px 2px 0 rgba(80,80,80,.22);
-}
-.spiral-ring::after{
-  content:"";
-  position:absolute;
-  left:-3px;
-  top:18px;
-  width:32px;
-  height:5px;
-  background:linear-gradient(90deg,#777,#bdbdbd 48%,#777);
-  border-radius:50%;
-  opacity:.75;
-}
-.spiral-ring.r0{top:0}.spiral-ring.r1{top:52px}.spiral-ring.r2{top:104px}.spiral-ring.r3{top:156px}
-.spiral-ring.r4{top:208px}.spiral-ring.r5{top:260px}.spiral-ring.r6{top:312px}.spiral-ring.r7{top:364px}
-
-/* Make the right navigation feel sewn onto the notebook edge, not like buttons */
-.side-tabs{
-  position:relative;
-  z-index:15;
-  margin-left:-9px;
-  padding-top:44px;
-}
-.side-tabs a{
-  margin:0;
-  border-left:1px solid #9db0b7;
-  border-right:1px solid #9db0b7;
-  border-top:1px solid #9db0b7;
-  border-bottom:0;
-  background:linear-gradient(90deg,#d9edf2,#b7dce6);
-  color:#4f7883;
-  min-height:34px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:inset 1px 0 rgba(255,255,255,.8),inset -1px 0 rgba(255,255,255,.45);
-}
-.side-tabs a:first-child{border-radius:0 5px 0 0;}
-.side-tabs a:last-child{border-bottom:1px solid #9db0b7;border-radius:0 0 5px 0;}
-.side-tabs a.selected,.side-tabs a:hover{
-  background:#fff;
-  color:#c05f82;
-  box-shadow:-2px 0 0 #fff,inset 1px 0 rgba(255,255,255,.9);
-}
-
-/* A subtle notebook seam around the whole minihompy */
-.mini-home::before{
-  content:"";
-  position:absolute;
-  inset:7px;
-  border:1px dashed #b9b9b9;
-  border-radius:5px;
-  pointer-events:none;
-  z-index:30;
-}
-@media(max-width:850px){
-  .spiral-binding{left:159px;}
-}
-@media(max-width:700px){
-  .mini-home::before,.spiral-binding{display:none;}
-  .side-tabs{margin-left:0;}
-}
+.spiral-binding svg{display:block;width:34px;height:100%;overflow:visible;}
+@media(max-width:850px){.spiral-binding{left:151px;}}
+@media(max-width:700px){.spiral-binding{display:none;}}

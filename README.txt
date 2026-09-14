@@ -1,20 +1,12 @@
-EYLEEN PORTFOLIO UPDATE
+EYLEEN CYWORLD-STYLE PORTFOLIO UPDATE
 
-Replace these three files in your GitHub repository:
+Replace these files in the GitHub repository:
 - index.html
 - about.html
 - styles.css
+- script.js
 
-The existing image, PDF, JS, and other project files should remain unchanged.
+Keep all existing photos, decks, PDFs, and the other HTML pages. The new styles.css automatically gives Content, Projects, Resume, Capstone, Contact, and Rains the same Cyworld-inspired visual language.
 
-This update adds:
-- Silkscreen headings
-- DM Sans body/navigation
-- Pixelify Sans decorative labels
-- Pink/white stripe accents
-- Redesigned About Me 4-card layout
-- USC + Parsons combined Education card
-- Updated homepage typography and positioning copy
-- Removes CPG from the visible homepage positioning
-
-Google Fonts are loaded by styles.css, so no font files need to be uploaded.
+The homepage is now a Korean Cyworld / mini-homepage format: Profile + Miniroom + Menu + Today's Diary + Guestbook.
+The About page is a scrapbook-style profile/diary page.

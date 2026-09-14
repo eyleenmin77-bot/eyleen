@@ -20,29 +20,39 @@ body:not(.cyworld-body){background:radial-gradient(circle,rgba(255,255,255,.7) 1
 }
 .mini-layout{position:relative;}
 
-/* Spiral binding running between the profile page and the main page */
-.mini-layout::before,
-.mini-layout::after{content:"";position:absolute;left:177px;z-index:20;pointer-events:none;}
-.mini-layout::before{
-  top:54px;
-  width:22px;height:13px;
-  border:2px solid #999;
-  border-left-color:#c8c8c8;
+/* V10: real notebook-style spiral rings between the two pages */
+.spiral-binding{
+  position:absolute;
+  left:174px;
+  top:42px;
+  width:34px;
+  height:430px;
+  z-index:25;
+  pointer-events:none;
+}
+.spiral-ring{
+  position:absolute;
+  left:0;
+  width:32px;
+  height:43px;
+  border:3px solid #8a8a8a;
   border-radius:50%;
-  background:linear-gradient(#eee,#fff);
-  box-shadow:0 48px 0 -2px #fff,0 48px 0 0 #999,
-             0 96px 0 -2px #fff,0 96px 0 0 #999,
-             0 144px 0 -2px #fff,0 144px 0 0 #999,
-             0 192px 0 -2px #fff,0 192px 0 0 #999,
-             0 240px 0 -2px #fff,0 240px 0 0 #999,
-             0 288px 0 -2px #fff,0 288px 0 0 #999,
-             0 336px 0 -2px #fff,0 336px 0 0 #999,
-             0 384px 0 -2px #fff,0 384px 0 0 #999;
+  background:linear-gradient(90deg,rgba(255,255,255,.92),rgba(220,220,220,.7) 48%,rgba(255,255,255,.92));
+  box-shadow:inset 1px 1px 0 #fff, 1px 2px 0 rgba(80,80,80,.22);
 }
-.mini-layout::after{
-  top:55px;width:20px;height:9px;
-  border-top:1px solid rgba(255,255,255,.9);
+.spiral-ring::after{
+  content:"";
+  position:absolute;
+  left:-3px;
+  top:18px;
+  width:32px;
+  height:5px;
+  background:linear-gradient(90deg,#777,#bdbdbd 48%,#777);
+  border-radius:50%;
+  opacity:.75;
 }
+.spiral-ring.r0{top:0}.spiral-ring.r1{top:52px}.spiral-ring.r2{top:104px}.spiral-ring.r3{top:156px}
+.spiral-ring.r4{top:208px}.spiral-ring.r5{top:260px}.spiral-ring.r6{top:312px}.spiral-ring.r7{top:364px}
 
 /* Make the right navigation feel sewn onto the notebook edge, not like buttons */
 .side-tabs{
@@ -84,9 +94,9 @@ body:not(.cyworld-body){background:radial-gradient(circle,rgba(255,255,255,.7) 1
   z-index:30;
 }
 @media(max-width:850px){
-  .mini-layout::before,.mini-layout::after{left:162px;}
+  .spiral-binding{left:159px;}
 }
 @media(max-width:700px){
-  .mini-home::before,.mini-layout::before,.mini-layout::after{display:none;}
+  .mini-home::before,.spiral-binding{display:none;}
   .side-tabs{margin-left:0;}
 }

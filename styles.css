@@ -69,3 +69,6 @@ body:not(.cyworld-body){background:radial-gradient(circle,rgba(255,255,255,.7) 1
   .history span{font-size:9px}
   .miniroom{max-height:calc((100vh - 220px) * .60)}
 }
+
+/* Keep animated Mini Room pixel art crisp when scaled */
+.miniroom img { image-rendering: pixelated; image-rendering: crisp-edges; }
